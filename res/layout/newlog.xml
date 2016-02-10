@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<ScrollView
+		android:layout_width="fill_parent"
+		android:layout_height="500dp">
+
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical">
+
+			<EditText
+				android:layout_height="wrap_content"
+				android:inputType="textPersonName"
+				android:ems="10"
+				android:layout_width="match_parent"
+				android:hint="Name:"
+				android:id="@+id/txtData"
+				android:text="Name: "/>
+
+			<EditText
+				android:layout_height="wrap_content"
+				android:inputType="textMultiLine"
+				android:ems="10"
+				android:layout_width="match_parent"
+				android:hint="Situation:"
+				android:id="@+id/situation"
+				android:text="Situation: "/>
+
+			<EditText
+				android:layout_height="wrap_content"
+				android:inputType="textMultiLine"
+				android:ems="10"
+				android:layout_width="match_parent"
+				android:hint="Thoughts:"
+				android:id="@+id/thoughts"
+				android:text="Thoughts: "/>
+
+			<EditText
+				android:layout_height="wrap_content"
+				android:ems="10"
+				android:layout_width="match_parent"
+				android:hint="Emotions:"
+				android:id="@+id/emotions"
+				android:text="Emotions: "/>
+
+			<EditText
+				android:layout_height="wrap_content"
+				android:ems="10"
+				android:layout_width="match_parent"
+				android:hint="Behavior:"
+				android:id="@+id/behavior"
+				android:text="Behavior: "/>
+
+			<CheckBox
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Fortune-telling: This occurs when we predict that things will turn out badly. However, we cannot predict the future because we don't have a magic ball!"
+				android:id="@+id/fortunetellingCheckBox1"
+				android:onClick="onCheckboxClicked"/>
+
+			<CheckBox
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Mind-reading: This happens when we believe that we know what others are thinking and we assume that they are thinking the worst of us. However, we can't mind-read so we don't know what others are thinking!"
+				android:id="@+id/mindreadingCheckBox2"
+				android:onClick="onCheckboxClicked"/>
+
+			<CheckBox
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Labeling: Sometimes we talk to ourselve in a mean way and we use a single negative word to describe ourselves. However, this kind of thinking is unfair and we are too complex to be summed up in a single word!"
+				android:id="@+id/labelingCheckBox3"
+				android:onClick="onCheckboxClicked"/>
+
+			<CheckBox
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Filtering: This happens when we take note of all the bad things that happen, but ignore any good things."
+				android:id="@+id/filteringCheckBox4"
+				android:onClick="onCheckboxClicked"/>
+
+			<CheckBox
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Overestimating: This happens when we believe that something that is unlikely to occur is actually about to happen."
+				android:id="@+id/overestimatingCheckBox5"
+				android:onClick="onCheckboxClicked"/>
+
+			<CheckBox
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Catastrophizing: This is when we imagine the worst pssible thing is about to happen and we will be unable to cope with it."
+				android:id="@+id/catastrophizingCheckBox6"
+				android:onClick="onCheckboxClicked"/>
+
+			<CheckBox
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Overgeneralizing: This is when we use words like always or never to describe situations or events. This is a problematic way of thinking because it does not take all situations or events into account."
+				android:id="@+id/overgeneralizingCheckBox7"
+				android:onClick="onCheckboxClicked"/>
+
+			<EditText
+				android:layout_height="wrap_content"
+				android:ems="10"
+				android:layout_width="match_parent"
+				android:hint="Alternative Behaviors:"
+				android:id="@+id/altbehaviors"
+				android:text="Alternative Behavior: "/>
+
+			<EditText
+				android:layout_height="wrap_content"
+				android:ems="10"
+				android:layout_width="match_parent"
+				android:hint="Alternative Thoughts:"
+				android:id="@+id/altthoughts"
+				android:text="Alternative Thoughts: "/>
+
+		</LinearLayout>
+
+	</ScrollView>
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:gravity="bottom|center">
+
+		<Button
+			android:layout_height="80dp"
+			android:text="Save"
+			android:layout_width="match_parent"
+			android:layout_weight="1.0"
+			android:textSize="25sp"
+			android:id="@+id/btnWriteSDFile"/>
+
+	</LinearLayout>
+
+</LinearLayout>
+
