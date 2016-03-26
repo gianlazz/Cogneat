@@ -5,6 +5,9 @@ import android.os.*;
 import android.view.*;
 import android.widget.*;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.*;
 import android.app.Activity;
 import android.os.Bundle;
@@ -27,14 +30,14 @@ public class NewLogActivity extends Activity
 	CheckBox catastrophizing;
 	CheckBox overgeneralizing;
 
-	String distortions;
+	List<String> distortions = new ArrayList<String>();
 	String fortuneTellingString = "Fortune-Telling";
 	String mindReadingString = "Mind-Reading";
 	String labelingString = "Labeling";
 	String filteringString = "Filtering";
 	String overestimatingString = "Overestimating";
 	String catastrophizingString = "Catastrophizing";
-	String OvergeneralizingString = "Overgeneralizing";
+	String overgeneralizingString = "Overgeneralizing";
 
 	EditText altbehavior;
 	EditText altthoughts;
@@ -79,13 +82,45 @@ public class NewLogActivity extends Activity
 		switch(view.getId()) {
 			case R.id.fortunetellingCheckBox1:
 				if (checked)
-					distortions = + fortuneTellingString;
-				//else
-				//	distortions = "";
+					distortions.add(fortuneTellingString);
+				else
+					distortions.remove(fortuneTellingString);
 				break;
 			case R.id.mindreadingCheckBox2:
 				if (checked)
-                 	distortions = "Mind-Reading";
+                 	distortions.add(mindReadingString);
+				else
+					distortions.remove(mindReadingString);
+				break;
+			case R.id.labelingCheckBox3:
+				if (checked)
+					distortions.add(labelingString);
+				else
+					distortions.remove(labelingString);
+				break;
+			case R.id.filteringCheckBox4:
+				if (checked)
+					distortions.add(filteringString);
+				else
+					distortions.remove(filteringString);
+				break;
+			case R.id.overestimatingCheckBox5:
+				if (checked)
+					distortions.add(overestimatingString);
+				else
+					distortions.remove(overestimatingString);
+				break;
+			case R.id.catastrophizingCheckBox6:
+				if (checked)
+					distortions.add(catastrophizingString);
+				else
+					distortions.remove(catastrophizingString);
+				break;
+			case R.id.overgeneralizingCheckBox7:
+				if (checked)
+					distortions.add(overgeneralizingString);
+				else
+					distortions.remove(overestimatingString);
 				break;
 
 		}
