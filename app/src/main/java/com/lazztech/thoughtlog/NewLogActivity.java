@@ -164,6 +164,7 @@ public class NewLogActivity extends Activity
 						stringBuffer.append('\n');
 						stringBuffer.append(altthoughts.getText());
 						stringBuffer.append('\n');
+						stringBuffer.append('\n');
 
 						// Print the stringBuffer to the file
 						printStream.print(stringBuffer.toString());
