@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/gianlazzarini/Documents/CBT%20Tools/Android%20Thought%20Log/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">ThoughtLog</string>
+    <string name="fortunetelling">Fortune-Telling</string>
+    <string name="hello">Hello World, MainActivity!</string>
+    <string name="title">Challenge unhealthy automatic thoughts and build a more effective perspective on life the pragmatic way with C.B.T.</string>
+    <!-- From: file:/Users/gianlazzarini/Documents/CBT%20Tools/Android%20Thought%20Log/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppTheme" parent="@android:style/Theme.Holo">
+	</style>
+</resources>
