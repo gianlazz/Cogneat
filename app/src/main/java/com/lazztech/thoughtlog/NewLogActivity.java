@@ -153,22 +153,22 @@ public class NewLogActivity extends Activity
 
 						// Using a stringBuffer to append all the values to
 						StringBuffer stringBuffer = new StringBuffer();
-						stringBuffer.append(txtData.getText());
+						stringBuffer.append("Name: " + txtData.getText());
 						stringBuffer.append('\n');
-						stringBuffer.append(situation.getText());
+						stringBuffer.append("Situation: " + situation.getText());
 						stringBuffer.append('\n');
-						stringBuffer.append(thoughts.getText());
+						stringBuffer.append("Thoughts: " + thoughts.getText());
 						stringBuffer.append('\n');
-						stringBuffer.append(emotions.getText());
+						stringBuffer.append("Emotions: " + emotions.getText());
 						stringBuffer.append('\n');
-						stringBuffer.append(behavior.getText());
+						stringBuffer.append("Behavior: " + behavior.getText());
 						stringBuffer.append('\n');
 						stringBuffer.append("Distortions: ");
 						stringBuffer.append(distortions);
 						stringBuffer.append('\n');
-						stringBuffer.append(altbehavior.getText());
+						stringBuffer.append("Alt Behavior: " + altbehavior.getText());
 						stringBuffer.append('\n');
-						stringBuffer.append(altthoughts.getText());
+						stringBuffer.append("Alt Thoughts: " + altthoughts.getText());
 						stringBuffer.append('\n');
 						stringBuffer.append('\n');
 
