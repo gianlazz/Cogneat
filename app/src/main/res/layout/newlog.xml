@@ -5,21 +5,6 @@
 	android:layout_height="fill_parent"
 	android:orientation="vertical">
 
-	<android.support.design.widget.TextInputLayout
-		android:id="@+id/usernameWrapper"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:theme="@style/Theme.AppCompat">
-
-		<EditText
-			android:id="@+id/username"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:inputType="textEmailAddress"
-			android:hint="Username"/>
-
-	</android.support.design.widget.TextInputLayout>
-
 	<ScrollView
 		android:layout_width="fill_parent"
 		android:layout_height="500dp">
@@ -29,14 +14,22 @@
 			android:layout_height="match_parent"
 			android:orientation="vertical">
 
-			<EditText
-				android:layout_height="wrap_content"
-				android:inputType="textPersonName"
-				android:ems="10"
+			<android.support.design.widget.TextInputLayout
+				android:id="@+id/nameWrapper"
 				android:layout_width="match_parent"
-				android:hint="Name:"
-				android:id="@+id/txtData"
-				android:text="Name: "/>
+				android:layout_height="wrap_content"
+				android:theme="@style/Theme.AppCompat">
+
+				<EditText
+					android:layout_height="wrap_content"
+					android:inputType="textPersonName"
+					android:ems="10"
+					android:layout_width="match_parent"
+					android:hint="Name:"
+					android:id="@+id/txtData"
+					android:text="Name: "/>
+
+			</android.support.design.widget.TextInputLayout>
 
 			<EditText
 				android:layout_height="wrap_content"

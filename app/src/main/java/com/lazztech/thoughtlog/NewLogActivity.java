@@ -53,8 +53,9 @@ public class NewLogActivity extends Activity
 		//Set NewLogActivity.xml as user interface layout
 		setContentView(R.layout.newlog);
 
-		final TextInputLayout usernameWrapper = (TextInputLayout) findViewById(R.id.usernameWrapper);
-		usernameWrapper.setHint("Username");
+		final TextInputLayout nameWrapper = (TextInputLayout) findViewById(R.id.nameWrapper);
+		nameWrapper.setHint("Name:");
+
 		// bind GUI elements with local controls
 		txtData = (EditText) findViewById(R.id.txtData);
 		situation = (EditText) findViewById(R.id.situation);
