@@ -17,10 +17,12 @@
 		android:textColor="#FFFFFF"/>
 
 	<TextView
-        android:layout_width="wrap_content"
-        android:layout_height="39dp"
-        android:text="This is where your log will be shown."
-        android:id="@+id/logView" />
+        android:layout_width="fill_parent"
+        android:layout_height="354dp"
+		android:id="@+id/logView"
+		android:textColor="#000000"
+		android:editable="true"
+		android:background="#ffffff" />
 
 	<LinearLayout
 		android:layout_width="fill_parent"
