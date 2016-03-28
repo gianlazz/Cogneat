@@ -31,39 +31,71 @@
 
 			</android.support.design.widget.TextInputLayout>
 
-			<EditText
-				android:layout_height="wrap_content"
-				android:inputType="textMultiLine"
-				android:ems="10"
+			<android.support.design.widget.TextInputLayout
+				android:id="@+id/situationWrapper"
 				android:layout_width="match_parent"
-				android:hint="Situation:"
-				android:id="@+id/situation"
-				android:text="Situation: "/>
+				android:layout_height="wrap_content"
+				android:theme="@style/Theme.AppCompat">
 
-			<EditText
-				android:layout_height="wrap_content"
-				android:inputType="textMultiLine"
-				android:ems="10"
-				android:layout_width="match_parent"
-				android:hint="Thoughts:"
-				android:id="@+id/thoughts"
-				android:text="Thoughts: "/>
+				<EditText
+					android:layout_height="wrap_content"
+					android:inputType="textMultiLine"
+					android:ems="10"
+					android:layout_width="match_parent"
+					android:hint="Situation:"
+					android:id="@+id/situation"
+					android:text="Situation: "/>
 
-			<EditText
-				android:layout_height="wrap_content"
-				android:ems="10"
-				android:layout_width="match_parent"
-				android:hint="Emotions:"
-				android:id="@+id/emotions"
-				android:text="Emotions: "/>
+			</android.support.design.widget.TextInputLayout>
 
-			<EditText
-				android:layout_height="wrap_content"
-				android:ems="10"
+			<android.support.design.widget.TextInputLayout
+				android:id="@+id/thoughtsWrapper"
 				android:layout_width="match_parent"
-				android:hint="Behavior:"
-				android:id="@+id/behavior"
-				android:text="Behavior: "/>
+				android:layout_height="wrap_content"
+				android:theme="@style/Theme.AppCompat">
+
+				<EditText
+					android:layout_height="wrap_content"
+					android:inputType="textMultiLine"
+					android:ems="10"
+					android:layout_width="match_parent"
+					android:hint="Thoughts:"
+					android:id="@+id/thoughts"
+					android:text="Thoughts: "/>
+
+			</android.support.design.widget.TextInputLayout>
+
+			<android.support.design.widget.TextInputLayout
+				android:id="@+id/emotionsWrapper"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:theme="@style/Theme.AppCompat">
+
+				<EditText
+					android:layout_height="wrap_content"
+					android:ems="10"
+					android:layout_width="match_parent"
+					android:hint="Emotions:"
+					android:id="@+id/emotions"
+					android:text="Emotions: "/>
+
+			</android.support.design.widget.TextInputLayout>
+
+			<android.support.design.widget.TextInputLayout
+				android:id="@+id/behaviorWrapper"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:theme="@style/Theme.AppCompat">
+
+				<EditText
+					android:layout_height="wrap_content"
+					android:ems="10"
+					android:layout_width="match_parent"
+					android:hint="Behavior:"
+					android:id="@+id/behavior"
+					android:text="Behavior: "/>
+
+			</android.support.design.widget.TextInputLayout>
 
 			<CheckBox
 				android:layout_height="wrap_content"
@@ -114,21 +146,37 @@
 				android:id="@+id/overgeneralizingCheckBox7"
 				android:onClick="onCheckboxClicked"/>
 
-			<EditText
-				android:layout_height="wrap_content"
-				android:ems="10"
+			<android.support.design.widget.TextInputLayout
+				android:id="@+id/altbehaviorsWrapper"
 				android:layout_width="match_parent"
-				android:hint="Alternative Behaviors:"
-				android:id="@+id/altbehaviors"
-				android:text="Alternative Behavior: "/>
+				android:layout_height="wrap_content"
+				android:theme="@style/Theme.AppCompat">
 
-			<EditText
-				android:layout_height="wrap_content"
-				android:ems="10"
+				<EditText
+					android:layout_height="wrap_content"
+					android:ems="10"
+					android:layout_width="match_parent"
+					android:hint="Alternative Behaviors:"
+					android:id="@+id/altbehaviors"
+					android:text="Alternative Behavior: "/>
+
+			</android.support.design.widget.TextInputLayout>
+
+			<android.support.design.widget.TextInputLayout
+				android:id="@+id/altthoughtsWrapper"
 				android:layout_width="match_parent"
-				android:hint="Alternative Thoughts:"
-				android:id="@+id/altthoughts"
-				android:text="Alternative Thoughts: "/>
+				android:layout_height="wrap_content"
+				android:theme="@style/Theme.AppCompat">
+
+					<EditText
+					android:layout_height="wrap_content"
+					android:ems="10"
+					android:layout_width="match_parent"
+					android:hint="Alternative Thoughts:"
+					android:id="@+id/altthoughts"
+					android:text="Alternative Thoughts: "/>
+
+			</android.support.design.widget.TextInputLayout>
 
 		</LinearLayout>
 
