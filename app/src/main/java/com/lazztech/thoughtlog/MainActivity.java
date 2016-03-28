@@ -18,7 +18,7 @@ public class MainActivity extends Activity
 	}
 
 	private String GetPhoneAddress() {
-		File file = new File(Environment.getExternalStorageDirectory() + "/reklama/tck.txt");
+		File file = new File(Environment.getExternalStorageDirectory() + "mythoughtlog.txt");
 		if (!file.exists()){
 			String line = "Need to add smth";
 			return line;
