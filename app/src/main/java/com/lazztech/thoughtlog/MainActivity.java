@@ -32,8 +32,10 @@ public class MainActivity extends Activity
 	}
 
 	private String GetPhoneAddress() {
-		File file = new File(Environment.getExternalStorageDirectory() + "mythoughtlog.txt");
-		if (!file.exists()){
+		File directory = Environment.getExternalStorageDirectory();
+		File myFile = new File(directory, "mythoughtlog.txt");
+		//File file = new File(Environment.getExternalStorageDirectory() + "mythoughtlog.txt");
+		if (!myFile.exists()){
 			String line = "Need to add smth";
 			return line;
 		}
@@ -41,7 +43,7 @@ public class MainActivity extends Activity
 		//Read text from file
 		//StringBuilder text = new StringBuilder();
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(file));
+			BufferedReader br = new BufferedReader(new FileReader(myFile));
 			line = br.readLine();
 		}
 		catch (IOException e) {
