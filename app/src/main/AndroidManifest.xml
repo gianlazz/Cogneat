@@ -25,7 +25,7 @@
         </activity>
 		<activity
 			android:label="New Log"
-			android:theme="@android:style/Theme.Material.Light"
+			android:theme="@android:style/Theme.Material.Light.NoActionBar"
 			android:name=".NewLogActivity"
             android:windowSoftInputMode="adjustPan"
             />
