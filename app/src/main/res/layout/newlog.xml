@@ -18,7 +18,7 @@
 				android:id="@+id/nameWrapper"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:theme="@style/Theme.AppCompat">
+				android:theme="@style/Theme.AppCompat.Light">
 
 				<EditText
 					android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
 				android:id="@+id/situationWrapper"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:theme="@style/Theme.AppCompat">
+				android:theme="@style/Theme.AppCompat.Light">
 
 				<EditText
 					android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
 				android:id="@+id/thoughtsWrapper"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:theme="@style/Theme.AppCompat">
+				android:theme="@style/Theme.AppCompat.Light">
 
 				<EditText
 					android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
 				android:id="@+id/emotionsWrapper"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:theme="@style/Theme.AppCompat">
+				android:theme="@style/Theme.AppCompat.Light">
 
 				<EditText
 					android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
 				android:id="@+id/behaviorWrapper"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:theme="@style/Theme.AppCompat">
+				android:theme="@style/Theme.AppCompat.Light">
 
 				<EditText
 					android:layout_height="wrap_content"
@@ -145,7 +145,7 @@
 				android:id="@+id/altbehaviorsWrapper"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:theme="@style/Theme.AppCompat">
+				android:theme="@style/Theme.AppCompat.Light">
 
 				<EditText
 					android:layout_height="wrap_content"
@@ -160,7 +160,7 @@
 				android:id="@+id/altthoughtsWrapper"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:theme="@style/Theme.AppCompat">
+				android:theme="@style/Theme.AppCompat.Light">
 
 					<EditText
 					android:layout_height="wrap_content"
