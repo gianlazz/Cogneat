@@ -9,12 +9,26 @@ import java.io.*;
 
 public class MainActivity extends Activity
 {
+	// GUI controls
+	TextView thoughtLogView;
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
 	{
         super.onCreate(savedInstanceState);
+		//Set MainActivity.xml as user interface layout
         setContentView(R.layout.main);
+		// bind GUI elements with local controls
+
+		thoughtLogView = (TextView) findViewById(R.id.logTextView);
+		GetPhoneAddress();
+
+		final TextView tvphone = (TextView) findViewById(R.id.logTextView);
+		String saved_phone = GetPhoneAddress();
+		if (saved_phone.length()>0) {
+			tvphone.setText(saved_phone);
+		}
 	}
 
 	private String GetPhoneAddress() {
@@ -33,14 +47,9 @@ public class MainActivity extends Activity
 		catch (IOException e) {
 			//You'll need to add proper error handling here
 		}
-
-		final TextView tvphone = (TextView) findViewById(R.id.logView);
-		String saved_phone = GetPhoneAddress();
-		if (saved_phone.length()>0){
-			tvphone.setText(saved_phone);
-		}
 		return line;
 	}
+
 
 	public void onNewLogButtonClick(View view)
 	{
