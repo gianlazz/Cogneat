@@ -5,6 +5,7 @@ import android.content.*;
 import android.os.*;
 import android.view.*;
 import android.widget.*;
+import java.io.*;
 
 public class MainActivity extends Activity
 {
@@ -15,7 +16,32 @@ public class MainActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 	}
-	
+
+	private String GetPhoneAddress() {
+		File file = new File(Environment.getExternalStorageDirectory() + "/reklama/tck.txt");
+		if (!file.exists()){
+			String line = "Need to add smth";
+			return line;
+		}
+		String line = null;
+		//Read text from file
+		//StringBuilder text = new StringBuilder();
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(file));
+			line = br.readLine();
+		}
+		catch (IOException e) {
+			//You'll need to add proper error handling here
+		}
+
+		final TextView tvphone = (TextView) findViewById(R.id.logView);
+		String saved_phone = GetPhoneAddress();
+		if (saved_phone.length()>0){
+			tvphone.setText(saved_phone);
+		}
+		return line;
+	}
+
 	public void onNewLogButtonClick(View view)
 	{
 		Intent intent = new Intent(this, NewLogActivity.class);
