@@ -51,12 +51,13 @@ public class NewLogActivity extends Activity
 		//Set NewLogActivity.xml as user interface layout
 		setContentView(R.layout.newlog);
 		// bind GUI elements with local controls
+
 		txtData = (EditText) findViewById(R.id.txtData);
 		situation = (EditText) findViewById(R.id.situation);
 		thoughts = (EditText) findViewById(R.id.thoughts);
 		emotions = (EditText) findViewById(R.id.emotions);
 		behavior = (EditText) findViewById(R.id.behavior);
-
+		//Distortion types
 		fortunetelling = (CheckBox) findViewById(R.id.fortunetellingCheckBox1);
 		mindreading = (CheckBox) findViewById(R.id.mindreadingCheckBox2);
 		labeling = (CheckBox) findViewById(R.id.labelingCheckBox3);
