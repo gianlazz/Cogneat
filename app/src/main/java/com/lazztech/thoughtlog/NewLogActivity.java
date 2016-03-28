@@ -7,6 +7,8 @@ import android.widget.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AppCompatActivity;
 
 import android.content.*;
 import android.app.Activity;
@@ -50,6 +52,9 @@ public class NewLogActivity extends Activity
 		super.onCreate(savedInstanceState);
 		//Set NewLogActivity.xml as user interface layout
 		setContentView(R.layout.newlog);
+
+		final TextInputLayout usernameWrapper = (TextInputLayout) findViewById(R.id.usernameWrapper);
+		usernameWrapper.setHint("Username");
 		// bind GUI elements with local controls
 		txtData = (EditText) findViewById(R.id.txtData);
 		situation = (EditText) findViewById(R.id.situation);
