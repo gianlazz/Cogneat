@@ -16,7 +16,7 @@
         <activity
             android:label="Thought Log"
             android:name=".MainActivity" 
-			android:theme="@android:style/Theme.Holo">
+			android:theme="@android:style/Theme.Material.Light">
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +25,7 @@
         </activity>
 		<activity
 			android:label="New Log"
-			android:theme="@android:style/Theme.Holo"
+			android:theme="@android:style/Theme.Material.Light.NoActionBar"
 			android:name=".NewLogActivity"
             android:windowSoftInputMode="adjustPan"
             />
