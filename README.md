@@ -7,6 +7,8 @@ Structured pragmatic advice based on data trends and developing psycology resear
 Crisp, clean data driven approach to physical and mental well being, while supplying evidence based suggestions to optimize
 the users time spent in an ideal baseline state.
 
+We believe if you have enough information about the reality of a situation, then problem solving becomes clear and straight forward.
+
 ### We are:
 - Data Driven
 - Evidence Based
@@ -17,6 +19,7 @@ the users time spent in an ideal baseline state.
 - Emotional & Psycological Stability
 - Quantified Wisdom
 - Concise
+- Problem Solvers
 
 ### We are not:
 - Robotic
