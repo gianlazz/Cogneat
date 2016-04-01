@@ -14,6 +14,8 @@ the users time spent in an ideal baseline state.
 - Informed
 - Technical
 - Empithetic
+- Emotional & Psycological Stability
+- Quantified Wisdom
 
 ### We are not:
 - Robotic
