@@ -16,9 +16,12 @@ the users time spent in an ideal baseline state.
 - Empithetic
 - Emotional & Psycological Stability
 - Quantified Wisdom
+- Concise
 
 ### We are not:
 - Robotic
 - Un-empithetic
 - New-Age
 - All show and no tell
+- Freudian
+- Complicated
