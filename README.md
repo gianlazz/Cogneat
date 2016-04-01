@@ -19,3 +19,4 @@ the users time spent in an ideal baseline state.
 - Robotic
 - Un-empithetic
 - New-Age
+- All show and no tell
