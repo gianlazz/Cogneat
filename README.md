@@ -7,7 +7,15 @@ Structured pragmatic advice based on data trends and developing psycology resear
 Crisp, clean data driven approach to physical and mental well being, while supplying evidence based suggestions to optimize
 the users time spent in an ideal baseline state.
 
-We are:
+### We are:
+- Data Driven
+- Evidence Based
+- Informative
+- Informed
+- Technical
+- Empithetic
 
-
-We are not:
+### We are not:
+- Robotic
+- Un-empithetic
+- New-Age
