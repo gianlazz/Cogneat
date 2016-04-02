@@ -3,10 +3,11 @@ package com.lazztech.thoughtlog;
 import android.app.*;
 import android.content.*;
 import android.os.*;
+import android.support.v7.app.AppCompatActivity;
 import android.view.*;
 import android.widget.*;
 
-public class MainActivity extends Activity
+public class MainActivity extends AppCompatActivity
 {
     /** Called when the activity is first created. */
     @Override
