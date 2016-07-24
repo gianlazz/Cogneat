@@ -41,7 +41,17 @@ public class MainActivity extends ActionBarActivity
 		String[] osArray = { "Log History", "New Log", "Analytics", "Settings"};
 		mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
 		mDrawerList.setAdapter(mAdapter);
+
+		mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				Intent intent = new Intent(MainActivity.this, NewLogActivity.class);
+				startActivity(intent);
+			}
+		});
 	}
+
+
 
 	private void setupDrawer() {
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
@@ -83,7 +93,7 @@ public class MainActivity extends ActionBarActivity
 		Intent intent = new Intent(this, NewLogActivity.class);
 		startActivity(intent);
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
@@ -92,7 +102,7 @@ public class MainActivity extends ActionBarActivity
 		inflater.inflate(R.menu.main_menu, menu);
 		return true;
     }
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
@@ -114,5 +124,5 @@ public class MainActivity extends ActionBarActivity
 
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 }
