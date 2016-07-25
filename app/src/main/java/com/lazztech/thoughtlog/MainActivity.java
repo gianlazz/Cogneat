@@ -7,12 +7,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.*;
 import android.widget.*;
 
+<<<<<<< HEAD
 import android.content.res.Configuration;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 
 public class MainActivity extends ActionBarActivity
+=======
+public class MainActivity extends AppCompatActivity
+>>>>>>> master
 {
 	private ListView mDrawerList;
 	private ArrayAdapter<String> mAdapter;

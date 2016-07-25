@@ -16,7 +16,7 @@ import android.os.Bundle;
 import android.view.View.OnClickListener;
 import android.widget.SearchView.*;
 
-public class NewLogActivity extends Activity
+public class NewLogActivity extends AppCompatActivity
 {
 	// GUI controls
 	EditText txtData;
