@@ -45,8 +45,22 @@ public class MainActivity extends ActionBarActivity
 		mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				Intent intent = new Intent(MainActivity.this, NewLogActivity.class);
-				startActivity(intent);
+				switch (position) {
+					//case 0: //Log History
+					//	startActivity(this, LogHistory.class);
+					//	break;
+					case 1: //Log History
+						Intent intent = new Intent(MainActivity.this, NewLogActivity.class);
+						startActivity(intent);
+					//case 2: //Log History
+					//	startActivity(this, Analytics.class);
+					//	break;
+					//case 3: //Log History
+					//	startActivity(this, Settings.class);
+					//	break;
+					//default:
+					//	throw new InvalidArgumentException("wtf, unknown position");
+				}
 			}
 		});
 	}
