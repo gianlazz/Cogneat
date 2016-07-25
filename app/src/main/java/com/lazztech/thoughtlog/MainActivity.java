@@ -6,17 +6,13 @@ import android.os.*;
 import android.support.v7.app.AppCompatActivity;
 import android.view.*;
 import android.widget.*;
-
-<<<<<<< HEAD
 import android.content.res.Configuration;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 
-public class MainActivity extends ActionBarActivity
-=======
 public class MainActivity extends AppCompatActivity
->>>>>>> master
+
 {
 	private ListView mDrawerList;
 	private ArrayAdapter<String> mAdapter;
@@ -50,18 +46,18 @@ public class MainActivity extends AppCompatActivity
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				switch (position) {
-					//case 0: //Log History
-					//	startActivity(this, LogHistory.class);
-					//	break;
-					case 1: //Log History
+					case 0: //Log History
+						Toast.makeText(MainActivity.this, "In development.", Toast.LENGTH_SHORT).show();
+						break;
+					case 1: //New Activity
 						Intent intent = new Intent(MainActivity.this, NewLogActivity.class);
 						startActivity(intent);
-					//case 2: //Log History
-					//	startActivity(this, Analytics.class);
-					//	break;
-					//case 3: //Log History
-					//	startActivity(this, Settings.class);
-					//	break;
+					case 2: //Analytics
+						Toast.makeText(MainActivity.this, "In development.", Toast.LENGTH_SHORT).show();
+						break;
+					case 3: //Settings
+						Toast.makeText(MainActivity.this, "In development.", Toast.LENGTH_SHORT).show();
+						break;
 					//default:
 					//	throw new InvalidArgumentException("wtf, unknown position");
 				}
