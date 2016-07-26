@@ -7,7 +7,7 @@ import android.view.*;
 import android.widget.*;
 import java.io.*;
 
-public class MainActivity extends Activity
+public class LogHistoryActivity extends Activity
 {
     // GUI controls
     TextView thoughtLogView;
@@ -18,7 +18,7 @@ public class MainActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         //Set MainActivity.xml as user interface layout
-        setContentView(R.layout.main);
+        setContentView(R.layout.loghistory);
         // bind GUI elements with local controls
 
         thoughtLogView = (TextView) findViewById(R.id.logTextView);
