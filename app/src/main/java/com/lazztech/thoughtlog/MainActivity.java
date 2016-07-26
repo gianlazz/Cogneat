@@ -49,9 +49,10 @@ public class MainActivity extends AppCompatActivity
 					case 0: //Log History
 						Toast.makeText(MainActivity.this, "In development.", Toast.LENGTH_SHORT).show();
 						break;
-					case 1: //New Activity
+					case 1: //New Log
 						Intent intent = new Intent(MainActivity.this, NewLogActivity.class);
 						startActivity(intent);
+						break;
 					case 2: //Analytics
 						Toast.makeText(MainActivity.this, "In development.", Toast.LENGTH_SHORT).show();
 						break;
