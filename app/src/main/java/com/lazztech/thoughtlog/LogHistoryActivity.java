@@ -3,11 +3,12 @@ package com.lazztech.thoughtlog;
 import android.app.*;
 import android.content.*;
 import android.os.*;
+import android.support.v7.app.AppCompatActivity;
 import android.view.*;
 import android.widget.*;
 import java.io.*;
 
-public class LogHistoryActivity extends Activity
+public class LogHistoryActivity extends AppCompatActivity
 {
     // GUI controls
     TextView thoughtLogView;
