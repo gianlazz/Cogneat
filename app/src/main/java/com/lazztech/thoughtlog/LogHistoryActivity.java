@@ -12,6 +12,7 @@ public class LogHistoryActivity extends AppCompatActivity
 {
     // GUI controls
     TextView thoughtLogView;
+    String line;
 
     /** Called when the activity is first created. */
     @Override
@@ -40,12 +41,21 @@ public class LogHistoryActivity extends AppCompatActivity
             String line = "Need to add smth";
             return line;
         }
-        String line = null;
+
         //Read text from file
         //StringBuilder text = new StringBuilder();
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(myFile));
+        try (BufferedReader br = new BufferedReader(new FileReader(myFile))) {
+            String line = br.readLine();
+            if (line == null) {
+                return null;
+            }
+            StringBuilder retVal = new StringBuilder(line);
             line = br.readLine();
+            while (line != null) {
+                retVal.append(System.lineSeparator()).append(line);
+                line = br.readLine();
+            }
+            return retVal.toString();
         }
         catch (IOException e) {
             //You'll need to add proper error handling here
