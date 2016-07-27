@@ -29,6 +29,11 @@
 			android:name=".NewLogActivity"
             android:windowSoftInputMode="adjustPan"
             />
+        <activity
+            android:label="Log History"
+            android:name=".LogHistoryActivity"
+            android:theme="@style/AppTheme"
+            />
     </application>
 
 </manifest>

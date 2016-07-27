@@ -47,11 +47,12 @@ public class MainActivity extends AppCompatActivity
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				switch (position) {
 					case 0: //Log History
-						Toast.makeText(MainActivity.this, "In development.", Toast.LENGTH_SHORT).show();
+						Intent loghistoryactivity = new Intent(MainActivity.this, LogHistoryActivity.class);
+						startActivity(loghistoryactivity);
 						break;
 					case 1: //New Log
-						Intent intent = new Intent(MainActivity.this, NewLogActivity.class);
-						startActivity(intent);
+						Intent newlogactivity = new Intent(MainActivity.this, NewLogActivity.class);
+						startActivity(newlogactivity);
 						break;
 					case 2: //Analytics
 						Toast.makeText(MainActivity.this, "In development.", Toast.LENGTH_SHORT).show();
