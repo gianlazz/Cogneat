@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity
 		switch (item.getItemId())
 		{
 			case R.id.mainMenuAbout:
-				Toast.makeText(this, "This is my app!!!", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "Developed by Gian Lazzarini.", Toast.LENGTH_LONG).show();
 				return true;
 			case R.id.mainMenuExit:
 				finish();
