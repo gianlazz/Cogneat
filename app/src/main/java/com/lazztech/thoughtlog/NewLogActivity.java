@@ -137,80 +137,75 @@ public class NewLogActivity extends AppCompatActivity
 					//Put up the Yes/No message box
 					AlertDialog.Builder builder = new AlertDialog.Builder(NewLogActivity.this);
 					builder
-							.setTitle("Are all of the fields complete?")
-							.setMessage("Are you sure?")
-							.setIcon(android.R.drawable.ic_dialog_alert)
+							.setTitle("Are you sure you're finished?")
+							.setMessage("Touch \"YES\" to save.")
+							//.setIcon(android.R.drawable.ic_dialog_alert)
 							.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog, int which) {
-									//Yes button clicked, do something
-									Toast.makeText(NewLogActivity.this, "Yes button pressed",
-											Toast.LENGTH_SHORT).show();
+									// write on SD card file data in the text box
+									try {
+										File directory = Environment.getExternalStorageDirectory();
+										File myFile = new File(directory, "mythoughtlog.txt");
+
+										// Check if the file already exists so you don't keep creating
+										if(!myFile.exists()) {
+											//Log.i(TAG, "Creating the file as it doesn't exist already");
+											myFile.createNewFile();
+										}
+
+										// Open the FileoutputStream
+										FileOutputStream fOut = new FileOutputStream(myFile, true);
+
+										// Open the printStream to allow for Strings to be written
+										PrintStream printStream = new PrintStream(fOut);
+
+
+										// Using a stringBuffer to append all the values to
+										StringBuffer stringBuffer = new StringBuffer();
+										stringBuffer.append("Name: " + txtData.getText());
+										stringBuffer.append('\n');
+										stringBuffer.append("Situation: " + situation.getText());
+										stringBuffer.append('\n');
+										stringBuffer.append("Thoughts: " + thoughts.getText());
+										stringBuffer.append('\n');
+										stringBuffer.append("Emotions: " + emotions.getText());
+										stringBuffer.append('\n');
+										stringBuffer.append("Behavior: " + behavior.getText());
+										stringBuffer.append('\n');
+										stringBuffer.append("Distortions: ");
+										stringBuffer.append(distortions);
+										stringBuffer.append('\n');
+										stringBuffer.append("Alt Behavior: " + altbehavior.getText());
+										stringBuffer.append('\n');
+										stringBuffer.append("Alt Thoughts: " + altthoughts.getText());
+										stringBuffer.append('\n');
+										stringBuffer.append('\n');
+
+										// Print the stringBuffer to the file
+										printStream.print(stringBuffer.toString());
+
+										// Close everything out
+										printStream.close();
+										fOut.close();
+										txtData.setText("Name: "); //ClearScreen
+										situation.setText("Situation: ");
+										thoughts.setText("Thoughts: ");
+										emotions.setText("Emotions: ");
+										behavior.setText("Behavior: ");
+										altbehavior.setText("Alternative Behavior: ");
+										altthoughts.setText("Alternative Thoughts: ");
+										Toast.makeText(getBaseContext(),
+												"Saved to 'mythoughtlog.txt'",
+												Toast.LENGTH_SHORT).show();
+									} catch (Exception e) {
+										e.printStackTrace();
+										Toast.makeText(getBaseContext(), e.getMessage(),
+												Toast.LENGTH_SHORT).show();
+									}
 								}
 							})
 							.setNegativeButton("No", null)						//Do nothing on no
 							.show();
-
-					// write on SD card file data in the text box
-					try {
-						File directory = Environment.getExternalStorageDirectory();
-						File myFile = new File(directory, "mythoughtlog.txt");
-
-						// Check if the file already exists so you don't keep creating
-		        if(!myFile.exists()) {
-		            //Log.i(TAG, "Creating the file as it doesn't exist already");
-		            myFile.createNewFile();
-		        }
-
-						// Open the FileoutputStream
-		        FileOutputStream fOut = new FileOutputStream(myFile, true);
-
-						// Open the printStream to allow for Strings to be written
-		        PrintStream printStream = new PrintStream(fOut);
-
-
-						// Using a stringBuffer to append all the values to
-						StringBuffer stringBuffer = new StringBuffer();
-						stringBuffer.append("Name: " + txtData.getText());
-						stringBuffer.append('\n');
-						stringBuffer.append("Situation: " + situation.getText());
-						stringBuffer.append('\n');
-						stringBuffer.append("Thoughts: " + thoughts.getText());
-						stringBuffer.append('\n');
-						stringBuffer.append("Emotions: " + emotions.getText());
-						stringBuffer.append('\n');
-						stringBuffer.append("Behavior: " + behavior.getText());
-						stringBuffer.append('\n');
-						stringBuffer.append("Distortions: ");
-						stringBuffer.append(distortions);
-						stringBuffer.append('\n');
-						stringBuffer.append("Alt Behavior: " + altbehavior.getText());
-						stringBuffer.append('\n');
-						stringBuffer.append("Alt Thoughts: " + altthoughts.getText());
-						stringBuffer.append('\n');
-						stringBuffer.append('\n');
-
-						// Print the stringBuffer to the file
-						printStream.print(stringBuffer.toString());
-
-        		// Close everything out
-						printStream.close();
-						fOut.close();
-						txtData.setText("Name: "); //ClearScreen
-						situation.setText("Situation: ");
-						thoughts.setText("Thoughts: ");
-						emotions.setText("Emotions: ");
-						behavior.setText("Behavior: ");
-						altbehavior.setText("Alternative Behavior: ");
-						altthoughts.setText("Alternative Thoughts: ");
-						Toast.makeText(getBaseContext(),
-									   "Saved to 'mythoughtlog.txt'",
-									   Toast.LENGTH_SHORT).show();
-					} catch (Exception e) {
-						e.printStackTrace();
-						Toast.makeText(getBaseContext(), e.getMessage(),
-									   Toast.LENGTH_SHORT).show();
-					}
-
 
 			}//Save onClick
 		});// btnWriteSDFile
