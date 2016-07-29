@@ -31,6 +31,7 @@ public class NewLogActivity extends AppCompatActivity
 	CheckBox overestimating;
 	CheckBox catastrophizing;
 	CheckBox overgeneralizing;
+	CheckBox blackandwhitethinking;
 
 	List<String> distortions = new ArrayList<String>();
 	String fortuneTellingString = "Fortune-Telling";
@@ -40,6 +41,7 @@ public class NewLogActivity extends AppCompatActivity
 	String overestimatingString = "Overestimating";
 	String catastrophizingString = "Catastrophizing";
 	String overgeneralizingString = "Overgeneralizing";
+	String blackandwhitethinkingString = "Black and White Thinking";
 
 	EditText altbehavior;
 	EditText altthoughts;
@@ -70,6 +72,7 @@ public class NewLogActivity extends AppCompatActivity
 		overestimating = (CheckBox) findViewById(R.id.overestimatingCheckBox5);
 		catastrophizing = (CheckBox) findViewById(R.id.catastrophizingCheckBox6);
 		overgeneralizing = (CheckBox) findViewById(R.id.overgeneralizingCheckBox7);
+		blackandwhitethinking = (CheckBox) findViewById(R.id.blackandwhitethinkingCheckBox8);
 
 		altbehavior = (EditText) findViewById(R.id.altbehaviors);
 		altthoughts = (EditText) findViewById(R.id.altthoughts);
@@ -128,7 +131,12 @@ public class NewLogActivity extends AppCompatActivity
 				else
 					distortions.remove(overestimatingString);
 				break;
-
+			case R.id.blackandwhitethinkingCheckBox8:
+				if (checked)
+					distortions.add(blackandwhitethinkingString);
+				else
+					distortions.remove(blackandwhitethinkingString);
+				break;
 		}
 		btnWriteSDFile.setOnClickListener(new OnClickListener() {
 

@@ -141,6 +141,13 @@
 				android:id="@+id/overgeneralizingCheckBox7"
 				android:onClick="onCheckboxClicked"/>
 
+			<CheckBox
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text='Splitting (All-or-nothing thinking or dichotomous reasoning): Seeing things in black or white as opposed to shades of gray; thinking in terms of false dilemmas. Splitting involves using terms like "always", "every" or "never" when this is neither true, nor equivalent to the truth.'
+				android:id="@+id/blackandwhitethinkingCheckBox8"
+				android:onClick="onCheckboxClicked"/>
+
 			<android.support.design.widget.TextInputLayout
 				android:id="@+id/altbehaviorsWrapper"
 				android:layout_width="match_parent"
