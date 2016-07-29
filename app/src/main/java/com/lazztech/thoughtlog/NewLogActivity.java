@@ -195,13 +195,13 @@ public class NewLogActivity extends AppCompatActivity
 										// Close everything out
 										printStream.close();
 										fOut.close();
-										txtData.setText("Name: "); //ClearScreen
-										situation.setText("Situation: ");
-										thoughts.setText("Thoughts: ");
-										emotions.setText("Emotions: ");
-										behavior.setText("Behavior: ");
-										altbehavior.setText("Alternative Behavior: ");
-										altthoughts.setText("Alternative Thoughts: ");
+										txtData.setText(""); //ClearScreen
+										situation.setText("");
+										thoughts.setText("");
+										emotions.setText("");
+										behavior.setText("");
+										altbehavior.setText("");
+										altthoughts.setText("");
 										Toast.makeText(getBaseContext(),
 												"Saved to 'mythoughtlog.txt'",
 												Toast.LENGTH_SHORT).show();
