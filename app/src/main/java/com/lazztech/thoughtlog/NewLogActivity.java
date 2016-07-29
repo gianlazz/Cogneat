@@ -133,6 +133,23 @@ public class NewLogActivity extends AppCompatActivity
 		btnWriteSDFile.setOnClickListener(new OnClickListener() {
 
 				public void onClick(View v) {
+
+					//Put up the Yes/No message box
+					AlertDialog.Builder builder = new AlertDialog.Builder(NewLogActivity.this);
+					builder
+							.setTitle("Are all of the fields complete?")
+							.setMessage("Are you sure?")
+							.setIcon(android.R.drawable.ic_dialog_alert)
+							.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog, int which) {
+									//Yes button clicked, do something
+									Toast.makeText(NewLogActivity.this, "Yes button pressed",
+											Toast.LENGTH_SHORT).show();
+								}
+							})
+							.setNegativeButton("No", null)						//Do nothing on no
+							.show();
+
 					// write on SD card file data in the text box
 					try {
 						File directory = Environment.getExternalStorageDirectory();
