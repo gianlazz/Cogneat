@@ -5,7 +5,9 @@ import android.os.*;
 import android.view.*;
 import android.widget.*;
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -32,6 +34,8 @@ public class NewLogActivity extends AppCompatActivity
 	CheckBox catastrophizing;
 	CheckBox overgeneralizing;
 	CheckBox blackandwhitethinking;
+
+	String Date = "Date: ";
 
 	List<String> distortions = new ArrayList<String>();
 	String fortuneTellingString = "Fortune-Telling";
@@ -167,9 +171,15 @@ public class NewLogActivity extends AppCompatActivity
 										// Open the printStream to allow for Strings to be written
 										PrintStream printStream = new PrintStream(fOut);
 
+										SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mma");
+										String currentDateandTime = sdf.format(new Date());
+										Date+=" "+currentDateandTime;
+
 
 										// Using a stringBuffer to append all the values to
 										StringBuffer stringBuffer = new StringBuffer();
+										stringBuffer.append(Date);
+										stringBuffer.append('\n');
 										stringBuffer.append("Name: " + txtData.getText());
 										stringBuffer.append('\n');
 										stringBuffer.append("Situation: " + situation.getText());
