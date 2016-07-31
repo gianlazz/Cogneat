@@ -38,7 +38,7 @@ public class LogHistoryActivity extends AppCompatActivity
         File myFile = new File(directory, "mythoughtlog.txt");
         //File file = new File(Environment.getExternalStorageDirectory() + "mythoughtlog.txt");
         if (!myFile.exists()){
-            String line = "Need to add smth";
+            String line = "Complete a new log entry and they will shown here.";
             return line;
         }
 
