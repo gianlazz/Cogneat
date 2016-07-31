@@ -171,7 +171,7 @@ public class NewLogActivity extends AppCompatActivity
 										// Open the printStream to allow for Strings to be written
 										PrintStream printStream = new PrintStream(fOut);
 
-										SimpleDateFormat sdf = new SimpleDateFormat("HH:mm dd/MM/yyyy");
+										SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mma");
 										String currentDateandTime = sdf.format(new Date());
 										Date+=" "+currentDateandTime;
 
