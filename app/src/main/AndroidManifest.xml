@@ -34,6 +34,11 @@
             android:name=".LogHistoryActivity"
             android:theme="@style/AppTheme"
             />
+        <activity
+            android:label="Depression Scale Test"
+            android:theme="@style/AppTheme"
+            android:name=".PHQ9Activity"
+            />
     </application>
 
 </manifest>
