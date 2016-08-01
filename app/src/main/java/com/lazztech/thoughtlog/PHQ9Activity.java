@@ -28,13 +28,13 @@ public class PHQ9Activity extends AppCompatActivity
         setContentView(R.layout.phq9);
         // bind GUI elements with local controls
         seekBar1 = (SeekBar)findViewById(R.id.seekBar1);
-        seekBar2 = (SeekBar)findViewById(R.id.seekBar1);
-        seekBar3 = (SeekBar)findViewById(R.id.seekBar1);
-        seekBar4 = (SeekBar)findViewById(R.id.seekBar1);
-        seekBar5 = (SeekBar)findViewById(R.id.seekBar1);
-        seekBar6 = (SeekBar)findViewById(R.id.seekBar1);
-        seekBar7 = (SeekBar)findViewById(R.id.seekBar1);
-        seekBar8 = (SeekBar)findViewById(R.id.seekBar1);
-        seekBar9 = (SeekBar)findViewById(R.id.seekBar1);
+        seekBar2 = (SeekBar)findViewById(R.id.seekBar2);
+        seekBar3 = (SeekBar)findViewById(R.id.seekBar3);
+        seekBar4 = (SeekBar)findViewById(R.id.seekBar4);
+        seekBar5 = (SeekBar)findViewById(R.id.seekBar5);
+        seekBar6 = (SeekBar)findViewById(R.id.seekBar6);
+        seekBar7 = (SeekBar)findViewById(R.id.seekBar7);
+        seekBar8 = (SeekBar)findViewById(R.id.seekBar8);
+        seekBar9 = (SeekBar)findViewById(R.id.seekBar9);
     }
 }
