@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/seekBar"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:max="3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -25,7 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/seekBar2"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:max="3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,7 +39,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/seekBar3"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:max="3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -49,7 +52,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/seekBar4"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:max="3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -61,7 +65,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/seekBar5"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:max="3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -73,7 +78,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/seekBar6"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:max="3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -85,7 +91,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/seekBar7"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:max="3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -97,7 +104,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/seekBar8"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:max="3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -108,6 +116,7 @@
     <SeekBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/seekBar9" />
+        android:id="@+id/seekBar9"
+        android:max="3" />
 
 </LinearLayout>
