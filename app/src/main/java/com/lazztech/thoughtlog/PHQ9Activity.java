@@ -11,14 +11,23 @@ public class PHQ9Activity extends AppCompatActivity
 {
 
     SeekBar seekBar1;
+    int seekBar1value;        //The SeekBar value output
     SeekBar seekBar2;
+    int seekBar2value;        //The SeekBar value output
     SeekBar seekBar3;
+    int seekBar3value;        //The SeekBar value output
     SeekBar seekBar4;
+    int seekBar4value;        //The SeekBar value output
     SeekBar seekBar5;
+    int seekBar5value;        //The SeekBar value output
     SeekBar seekBar6;
+    int seekBar6value;        //The SeekBar value output
     SeekBar seekBar7;
+    int seekBar7value;        //The SeekBar value output
     SeekBar seekBar8;
+    int seekBar8value;        //The SeekBar value output
     SeekBar seekBar9;
+    int seekBar9value;        //The SeekBar value output
 
     /** Called when the activity is first created. */
     @Override
