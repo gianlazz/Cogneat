@@ -35,7 +35,7 @@
     <SeekBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/seekBar"
+        android:id="@+id/seekBar1"
         android:layout_gravity="center_horizontal"
         android:max="3" />
 
