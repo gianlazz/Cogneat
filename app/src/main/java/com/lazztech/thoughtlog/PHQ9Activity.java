@@ -3,11 +3,12 @@ package com.lazztech.thoughtlog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 
 /**
  * Created by gianlazzarini on 7/31/16.
  */
-public class PHQ9Activity extends AppCompatActivity
+public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeListener
 {
 
     SeekBar seekBar1;
@@ -45,5 +46,22 @@ public class PHQ9Activity extends AppCompatActivity
         seekBar7 = (SeekBar)findViewById(R.id.seekBar7);
         seekBar8 = (SeekBar)findViewById(R.id.seekBar8);
         seekBar9 = (SeekBar)findViewById(R.id.seekBar9);
+
+        //set change listener
+        seekBar1.setOnSeekBarChangeListener(this);
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        seekBar1value = progress;
+        result.setText ("Value:"+value);
+    }
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+        // TODO Auto-generated method stub
+    }
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+        // TODO Auto-generated method stub
     }
 }
