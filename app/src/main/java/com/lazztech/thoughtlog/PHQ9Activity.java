@@ -34,6 +34,8 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
     SeekBar seekBar9;
     int seekBar9value;        //The SeekBar value output
 
+    int totalScoreInt;
+
 
     TextView result;
     Button SaveScore;
@@ -65,7 +67,27 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         seekBar1value = progress;
-        result.setText(String.valueOf("Score: " + seekBar1value));
+        seekBar2value = progress;
+        seekBar3value = progress;
+        seekBar4value = progress;
+        seekBar5value = progress;
+        seekBar6value = progress;
+        seekBar7value = progress;
+        seekBar8value = progress;
+        seekBar9value = progress;
+
+        totalScoreInt =
+                + seekBar1value
+                + seekBar2value
+                + seekBar3value
+                + seekBar4value
+                + seekBar5value
+                + seekBar6value
+                + seekBar7value
+                + seekBar8value
+                + seekBar9value;
+
+        result.setText(String.valueOf("Score: " +totalScoreInt));
     }
 
 
