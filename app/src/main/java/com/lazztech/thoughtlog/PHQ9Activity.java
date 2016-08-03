@@ -37,6 +37,8 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
     int totalScoreInt;
 
 
+
+
     TextView result;
     Button SaveScore;
 
@@ -59,6 +61,25 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
 
         //set change listener
         seekBar1.setOnSeekBarChangeListener(this);
+        seekBar2.setOnSeekBarChangeListener(this);
+        seekBar3.setOnSeekBarChangeListener(this);
+        seekBar4.setOnSeekBarChangeListener(this);
+        seekBar5.setOnSeekBarChangeListener(this);
+        seekBar6.setOnSeekBarChangeListener(this);
+        seekBar7.setOnSeekBarChangeListener(this);
+        seekBar8.setOnSeekBarChangeListener(this);
+        seekBar9.setOnSeekBarChangeListener(this);
+
+        totalScoreInt =
+                        + seekBar1value
+                        + seekBar2value
+                        + seekBar3value
+                        + seekBar4value
+                        + seekBar5value
+                        + seekBar6value
+                        + seekBar7value
+                        + seekBar8value
+                        + seekBar9value;
 
         result = (TextView)findViewById(R.id.totalScore);
         SaveScore = (Button)findViewById(R.id.SaveDepressionScore);
@@ -75,17 +96,6 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
         seekBar7value = progress;
         seekBar8value = progress;
         seekBar9value = progress;
-
-        totalScoreInt =
-                + seekBar1value
-                + seekBar2value
-                + seekBar3value
-                + seekBar4value
-                + seekBar5value
-                + seekBar6value
-                + seekBar7value
-                + seekBar8value
-                + seekBar9value;
 
         result.setText(String.valueOf("Score: " +totalScoreInt));
     }
