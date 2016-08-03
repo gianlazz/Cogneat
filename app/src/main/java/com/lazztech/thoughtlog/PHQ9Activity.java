@@ -2,8 +2,12 @@ package com.lazztech.thoughtlog;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.view.View.OnClickListener;
+import android.widget.TextView;
 
 /**
  * Created by gianlazzarini on 7/31/16.
@@ -30,6 +34,10 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
     SeekBar seekBar9;
     int seekBar9value;        //The SeekBar value output
 
+
+    TextView result;
+    Button SaveScore;
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,13 +57,18 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
 
         //set change listener
         seekBar1.setOnSeekBarChangeListener(this);
+
+        result = (TextView)findViewById(R.id.totalScore);
+        SaveScore = (Button)findViewById(R.id.SaveDepressionScore);
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         seekBar1value = progress;
-        result.setText ("Value:"+value);
+        result.setText(String.valueOf("Score: " + seekBar1value));
     }
+
+
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
         // TODO Auto-generated method stub
