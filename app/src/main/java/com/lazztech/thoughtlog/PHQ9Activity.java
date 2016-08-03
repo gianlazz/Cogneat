@@ -1,6 +1,9 @@
 package com.lazztech.thoughtlog;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -8,6 +11,13 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by gianlazzarini on 7/31/16.
@@ -36,9 +46,8 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
 
     int totalScoreInt;
 
-
-
-
+    String Date = "Date: ";
+    
     TextView result;
     Button SaveScore;
 
@@ -83,6 +92,68 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
 
         result = (TextView)findViewById(R.id.totalScore);
         SaveScore = (Button)findViewById(R.id.SaveDepressionScore);
+
+        SaveScore.setOnClickListener(new OnClickListener() {
+
+            public void onClick(View v) {
+
+                //Put up the Yes/No message box
+                AlertDialog.Builder builder = new AlertDialog.Builder(PHQ9Activity.this);
+                builder
+                        .setTitle("Are you sure you're finished?")
+                        .setMessage("Touch \"YES\" to save.")
+                                //.setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // write on SD card file data in the text box
+                                try {
+                                    File directory = Environment.getExternalStorageDirectory();
+                                    File myFile = new File(directory, "mythoughtlog.txt");
+
+                                    // Check if the file already exists so you don't keep creating
+                                    if (!myFile.exists()) {
+                                        //Log.i(TAG, "Creating the file as it doesn't exist already");
+                                        myFile.createNewFile();
+                                    }
+
+                                    // Open the FileoutputStream
+                                    FileOutputStream fOut = new FileOutputStream(myFile, true);
+
+                                    // Open the printStream to allow for Strings to be written
+                                    PrintStream printStream = new PrintStream(fOut);
+
+                                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mma");
+                                    String currentDateandTime = sdf.format(new Date());
+                                    Date += " " + currentDateandTime;
+
+
+                                    // Using a stringBuffer to append all the values to
+                                    StringBuffer stringBuffer = new StringBuffer();
+                                    stringBuffer.append(Date);
+                                    stringBuffer.append('\n');
+                                    stringBuffer.append(String.valueOf("Score: " +totalScoreInt));
+
+                                    // Print the stringBuffer to the file
+                                    printStream.print(stringBuffer.toString());
+
+                                    // Close everything out
+                                    printStream.close();
+                                    fOut.close();
+                                    Toast.makeText(getBaseContext(),
+                                            "Saved to 'mythoughtlog.txt'",
+                                            Toast.LENGTH_SHORT).show();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                    Toast.makeText(getBaseContext(), e.getMessage(),
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        })
+                        .setNegativeButton("No", null)                        //Do nothing on no
+                        .show();
+
+            }//Save onClick
+        });// btnWriteSDFile
     }
 
     @Override
