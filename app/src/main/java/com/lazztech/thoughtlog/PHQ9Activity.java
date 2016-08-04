@@ -79,17 +79,6 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
         seekBar8.setOnSeekBarChangeListener(this);
         seekBar9.setOnSeekBarChangeListener(this);
 
-        totalScoreInt =
-                        + seekBar1value
-                        + seekBar2value
-                        + seekBar3value
-                        + seekBar4value
-                        + seekBar5value
-                        + seekBar6value
-                        + seekBar7value
-                        + seekBar8value
-                        + seekBar9value;
-
         result = (TextView)findViewById(R.id.totalScore);
         SaveScore = (Button)findViewById(R.id.SaveDepressionScore);
 
@@ -166,6 +155,7 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
         seekBar1value = progress;
         seekBar2value = progress;
         seekBar3value = progress;
@@ -175,6 +165,55 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
         seekBar7value = progress;
         seekBar8value = progress;
         seekBar9value = progress;
+
+        totalScoreInt =
+                seekBar1.getProgress()
+                        + seekBar2.getProgress()
+                        + seekBar3.getProgress()
+                        + seekBar4.getProgress()
+                        + seekBar5.getProgress()
+                        + seekBar6.getProgress()
+                        + seekBar7.getProgress()
+                        + seekBar8.getProgress()
+                        + seekBar9.getProgress();
+
+        switch (seekBar.getId()){
+            case R.id.seekBar1:
+                result.setText("Score: " +progress);
+                break;
+
+            case R.id.seekBar2:
+                result.setText("Score: " +progress);
+                break;
+
+            case R.id.seekBar3:
+                result.setText("Score: " +progress);
+                break;
+
+            case R.id.seekBar4:
+                result.setText("Score: " +progress);
+                break;
+
+            case R.id.seekBar5:
+                result.setText("Score: " +progress);
+                break;
+
+            case R.id.seekBar6:
+                result.setText("Score: " +progress);
+                break;
+
+            case R.id.seekBar7:
+                result.setText("Score: " +progress);
+                break;
+
+            case R.id.seekBar8:
+                result.setText("Score: " +progress);
+                break;
+
+            case R.id.seekBar9:
+                result.setText("Score: " +progress);
+                break;
+        }
 
         result.setText(String.valueOf("Score: " +totalScoreInt));
     }
