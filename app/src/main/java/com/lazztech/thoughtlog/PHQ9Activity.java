@@ -156,18 +156,8 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-        seekBar1value = progress;
-        seekBar2value = progress;
-        seekBar3value = progress;
-        seekBar4value = progress;
-        seekBar5value = progress;
-        seekBar6value = progress;
-        seekBar7value = progress;
-        seekBar8value = progress;
-        seekBar9value = progress;
-
-        totalScoreInt =
-                seekBar1.getProgress()
+        //Gets the progress of all of the SeekBars and stores it into the integer variable totalScoreInt
+        totalScoreInt = seekBar1.getProgress()
                         + seekBar2.getProgress()
                         + seekBar3.getProgress()
                         + seekBar4.getProgress()
@@ -177,44 +167,7 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
                         + seekBar8.getProgress()
                         + seekBar9.getProgress();
 
-        switch (seekBar.getId()){
-            case R.id.seekBar1:
-                result.setText("Score: " +progress);
-                break;
-
-            case R.id.seekBar2:
-                result.setText("Score: " +progress);
-                break;
-
-            case R.id.seekBar3:
-                result.setText("Score: " +progress);
-                break;
-
-            case R.id.seekBar4:
-                result.setText("Score: " +progress);
-                break;
-
-            case R.id.seekBar5:
-                result.setText("Score: " +progress);
-                break;
-
-            case R.id.seekBar6:
-                result.setText("Score: " +progress);
-                break;
-
-            case R.id.seekBar7:
-                result.setText("Score: " +progress);
-                break;
-
-            case R.id.seekBar8:
-                result.setText("Score: " +progress);
-                break;
-
-            case R.id.seekBar9:
-                result.setText("Score: " +progress);
-                break;
-        }
-
+        //Converts totalScoreInt integer into string and sets it to "result"
         result.setText(String.valueOf("Score: " +totalScoreInt));
     }
 
