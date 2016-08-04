@@ -47,7 +47,7 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
     int totalScoreInt;
 
     String Date = "Date: ";
-    
+
     TextView result;
     Button SaveScore;
 
@@ -93,8 +93,8 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
         result = (TextView)findViewById(R.id.totalScore);
         SaveScore = (Button)findViewById(R.id.SaveDepressionScore);
 
-        SaveScore.setOnClickListener(new OnClickListener() {
-
+        View.OnClickListener saveListener = new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
 
                 //Put up the Yes/No message box
@@ -132,6 +132,9 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
                                     stringBuffer.append(Date);
                                     stringBuffer.append('\n');
                                     stringBuffer.append(String.valueOf("Score: " +totalScoreInt));
+                                    stringBuffer.append('\n');
+                                    stringBuffer.append('\n');
+
 
                                     // Print the stringBuffer to the file
                                     printStream.print(stringBuffer.toString());
@@ -152,8 +155,13 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
                         .setNegativeButton("No", null)                        //Do nothing on no
                         .show();
 
-            }//Save onClick
-        });// btnWriteSDFile
+            //Close onClick
+            }
+        // End OnClickListener
+        };
+        //setOnClickListener(saveListener) to button variable connected to R.id.SaveDepressionScore in layout xml
+        SaveScore.setOnClickListener(saveListener);
+    //Close onCreate
     }
 
     @Override
