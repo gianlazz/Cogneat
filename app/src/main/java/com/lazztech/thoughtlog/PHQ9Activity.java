@@ -49,6 +49,7 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
     String Date = "Date: ";
 
     TextView result;
+    TextView diagnosis;
     Button SaveScore;
 
     /** Called when the activity is first created. */
@@ -80,6 +81,7 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
         seekBar9.setOnSeekBarChangeListener(this);
 
         result = (TextView)findViewById(R.id.totalScore);
+        diagnosis = (TextView)findViewById(R.id.diagnosis);
         SaveScore = (Button)findViewById(R.id.SaveDepressionScore);
 
         View.OnClickListener saveListener = new View.OnClickListener() {
@@ -148,8 +150,10 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
             }
         // End OnClickListener
         };
+        
         //setOnClickListener(saveListener) to button variable connected to R.id.SaveDepressionScore in layout xml
         SaveScore.setOnClickListener(saveListener);
+
     //Close onCreate
     }
 
@@ -169,6 +173,23 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
 
         //Converts totalScoreInt integer into string and sets it to "result"
         result.setText(String.valueOf("Score: " +totalScoreInt));
+
+        if (totalScoreInt >= 4){
+            diagnosis.setText(String.valueOf("Provisional Diagnosis: "));
+        }
+        if (totalScoreInt >= 5 && totalScoreInt <= 9 ){
+            diagnosis.setText(String.valueOf("Provisional Diagnosis: " + "Minimal Symptoms*"));
+        }
+        if (totalScoreInt >= 10 && totalScoreInt <= 14){
+            diagnosis.setText(String.valueOf("Provisional Diagnosis: " + "Minor depression ++ Dysthymia*\n" +
+                    "Major Depression, mild"));
+        }
+        if (totalScoreInt >= 15 && totalScoreInt <= 19){
+            diagnosis.setText(String.valueOf("Provisional Diagnosis: " + "Major depression, moderately severe"));
+        }
+        if (totalScoreInt >=20){
+            diagnosis.setText(String.valueOf("Provisional Diagnosis: " + "Major Depression, severe"));
+        }
     }
 
 
