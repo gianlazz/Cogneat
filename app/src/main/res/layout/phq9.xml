@@ -148,6 +148,12 @@
                 android:id="@+id/totalScore"
                 android:text="Score:"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/diagnosis"
+                android:text="Provisional Diagnosis: "/>
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
