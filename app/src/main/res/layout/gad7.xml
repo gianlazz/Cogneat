@@ -29,7 +29,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1. Little interest or pleasure in doing things"
+                android:text="1. Feeling nervous, anxious, or on edge"
                 android:id="@+id/textView" />
 
             <SeekBar
@@ -42,7 +42,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" 2. Feeling down, depressed or hopeless"
+                android:text="2. Not being able to stop or control worrying"
                 android:id="@+id/textView2" />
 
             <SeekBar
@@ -55,7 +55,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3. Trouble falling asleep, staying asleep, or sleeping too much"
+                android:text="3. Worrying too much about different things"
                 android:id="@+id/textView3" />
 
             <SeekBar
@@ -68,7 +68,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4. Feeling tired or having little energy"
+                android:text="4. Trouble relaxing"
                 android:id="@+id/textView4" />
 
             <SeekBar
@@ -81,7 +81,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5. Poor appetite or overeating"
+                android:text="5. Being so restless that it’s hard to sit still"
                 android:id="@+id/textView5" />
 
             <SeekBar
@@ -94,7 +94,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="6. Feeling bad about yourself - or that you’re a failure or have let yourself or your family down"
+                android:text="6. Becoming easily annoyed or irritable"
                 android:id="@+id/textView6" />
 
             <SeekBar
@@ -107,7 +107,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="7. Trouble concentrating on things, such as reading the newspaper or watching television"
+                android:text="7. Feeling afraid as if something awful might happen"
                 android:id="@+id/textView7" />
 
             <SeekBar
@@ -115,31 +115,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/seekBar7"
                 android:layout_gravity="center_horizontal"
-                android:max="3" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="8. Moving or speaking so slowly that other people could have noticed. Or, the opposite - being so fidgety or restless that you have been moving around a lot more than usual"
-                android:id="@+id/textView8" />
-
-            <SeekBar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/seekBar8"
-                android:layout_gravity="center_horizontal"
-                android:max="3" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="9. Thoughts that you would be better off dead or of hurting yourself in some way"
-                android:id="@+id/textView9" />
-
-            <SeekBar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/seekBar9"
                 android:max="3" />
 
             <TextView
