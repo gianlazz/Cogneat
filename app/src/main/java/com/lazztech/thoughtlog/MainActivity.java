@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity
 	}
 
 	private void addDrawerItems() {
-		String[] osArray = { "Log History", "New Log", "Depression Score", "Analytics", "Settings"};
+		String[] osArray = { "Log History", "New Log", "Depression Test", "Anxiety Test", "Analytics", "Settings"};
 		mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
 		mDrawerList.setAdapter(mAdapter);
 
@@ -58,10 +58,14 @@ public class MainActivity extends AppCompatActivity
 						Intent phq9activity = new Intent(MainActivity.this, PHQ9Activity.class);
 						startActivity(phq9activity);
 						break;
-					case 3: //Analytics
+					case 3: //Anxiety Test
+						Intent gad7activity = new Intent(MainActivity.this, GAD7Activity.class);
+						startActivity(gad7activity);
+						break;
+					case 4: //Analytics
 						Toast.makeText(MainActivity.this, "In development.", Toast.LENGTH_SHORT).show();
 						break;
-					case 4: //Settings
+					case 5: //Settings
 						Toast.makeText(MainActivity.this, "In development.", Toast.LENGTH_SHORT).show();
 						break;
 					//default:

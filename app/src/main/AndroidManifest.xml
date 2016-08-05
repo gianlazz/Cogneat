@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lazztech.thoughtlog"
-    android:versionCode="3"
-    android:versionName="1.0.2" >
+    android:versionCode="4"
+    android:versionName="1.0.3" >
 
     <uses-sdk 
         android:minSdkVersion="8"
@@ -38,6 +38,11 @@
             android:label="Depression Scale Test"
             android:theme="@style/AppTheme"
             android:name=".PHQ9Activity"
+            />
+        <activity
+            android:label="Anxiety Scale Test"
+            android:theme="@style/AppTheme"
+            android:name=".GAD7Activity"
             />
     </application>
 

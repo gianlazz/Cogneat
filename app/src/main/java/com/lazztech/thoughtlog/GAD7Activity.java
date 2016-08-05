@@ -8,8 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
-import android.widget.SeekBar.OnSeekBarChangeListener;
-import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,10 +18,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Created by gianlazzarini on 7/31/16.
+ * Created by gianlazzarini on 8/4/16.
  */
-public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeListener
-{
+public class GAD7Activity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
 
     SeekBar seekBar1;
     int seekBar1value;        //The SeekBar value output
@@ -57,7 +54,7 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Set MainActivity.xml as user interface layout
-        setContentView(R.layout.phq9);
+        setContentView(R.layout.gad7);
         // bind GUI elements with local controls
         seekBar1 = (SeekBar)findViewById(R.id.seekBar1);
         seekBar2 = (SeekBar)findViewById(R.id.seekBar2);
@@ -66,8 +63,6 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
         seekBar5 = (SeekBar)findViewById(R.id.seekBar5);
         seekBar6 = (SeekBar)findViewById(R.id.seekBar6);
         seekBar7 = (SeekBar)findViewById(R.id.seekBar7);
-        seekBar8 = (SeekBar)findViewById(R.id.seekBar8);
-        seekBar9 = (SeekBar)findViewById(R.id.seekBar9);
 
         //set change listener
         seekBar1.setOnSeekBarChangeListener(this);
@@ -77,8 +72,6 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
         seekBar5.setOnSeekBarChangeListener(this);
         seekBar6.setOnSeekBarChangeListener(this);
         seekBar7.setOnSeekBarChangeListener(this);
-        seekBar8.setOnSeekBarChangeListener(this);
-        seekBar9.setOnSeekBarChangeListener(this);
 
         result = (TextView)findViewById(R.id.totalScore);
         diagnosis = (TextView)findViewById(R.id.diagnosis);
@@ -89,7 +82,7 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
             public void onClick(View v) {
 
                 //Put up the Yes/No message box
-                AlertDialog.Builder builder = new AlertDialog.Builder(PHQ9Activity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(GAD7Activity.this);
                 builder
                         .setTitle("Are you sure you're finished?")
                         .setMessage("Touch \"YES\" to save.")
@@ -122,11 +115,12 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
                                     StringBuffer stringBuffer = new StringBuffer();
                                     stringBuffer.append(Date);
                                     stringBuffer.append('\n');
-                                    stringBuffer.append(String.valueOf("PHQ-9 Score: " +totalScoreInt));
+                                    stringBuffer.append(String.valueOf("GAD-7 Score: " +totalScoreInt));
                                     stringBuffer.append('\n');
                                     stringBuffer.append(diagnosis.getText());
                                     stringBuffer.append('\n');
                                     stringBuffer.append('\n');
+
 
 
                                     // Print the stringBuffer to the file
@@ -148,15 +142,15 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
                         .setNegativeButton("No", null)                        //Do nothing on no
                         .show();
 
-            //Close onClick
+                //Close onClick
             }
-        // End OnClickListener
+            // End OnClickListener
         };
-        
+
         //setOnClickListener(saveListener) to button variable connected to R.id.SaveDepressionScore in layout xml
         SaveScore.setOnClickListener(saveListener);
 
-    //Close onCreate
+        //Close onCreate
     }
 
     @Override
@@ -164,14 +158,12 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
 
         //Gets the progress of all of the SeekBars and stores it into the integer variable totalScoreInt
         totalScoreInt = seekBar1.getProgress()
-                        + seekBar2.getProgress()
-                        + seekBar3.getProgress()
-                        + seekBar4.getProgress()
-                        + seekBar5.getProgress()
-                        + seekBar6.getProgress()
-                        + seekBar7.getProgress()
-                        + seekBar8.getProgress()
-                        + seekBar9.getProgress();
+                + seekBar2.getProgress()
+                + seekBar3.getProgress()
+                + seekBar4.getProgress()
+                + seekBar5.getProgress()
+                + seekBar6.getProgress()
+                + seekBar7.getProgress();
 
         //Converts totalScoreInt integer into string and sets it to "result"
         result.setText(String.valueOf("Score: " +totalScoreInt));
@@ -180,17 +172,13 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
             diagnosis.setText(String.valueOf("Provisional Diagnosis: "));
         }
         if (totalScoreInt >= 5 && totalScoreInt <= 9 ){
-            diagnosis.setText(String.valueOf("Provisional Diagnosis: " + "Minimal Symptoms*"));
+            diagnosis.setText(String.valueOf("Provisional Diagnosis: " + "Mild"));
         }
         if (totalScoreInt >= 10 && totalScoreInt <= 14){
-            diagnosis.setText(String.valueOf("Provisional Diagnosis: " + "Minor depression ++ Dysthymia*\n" +
-                    "Major Depression, mild"));
+            diagnosis.setText(String.valueOf("Provisional Diagnosis: " + "Moderate"));
         }
-        if (totalScoreInt >= 15 && totalScoreInt <= 19){
-            diagnosis.setText(String.valueOf("Provisional Diagnosis: " + "Major depression, moderately severe"));
-        }
-        if (totalScoreInt >=20){
-            diagnosis.setText(String.valueOf("Provisional Diagnosis: " + "Major Depression, severe"));
+        if (totalScoreInt >= 15){
+            diagnosis.setText(String.valueOf("Provisional Diagnosis: " + "Severe"));
         }
     }
 
