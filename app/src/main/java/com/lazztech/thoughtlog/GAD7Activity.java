@@ -54,7 +54,7 @@ public class GAD7Activity extends AppCompatActivity implements SeekBar.OnSeekBar
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Set MainActivity.xml as user interface layout
-        setContentView(R.layout.phq9);
+        setContentView(R.layout.gad7);
         // bind GUI elements with local controls
         seekBar1 = (SeekBar)findViewById(R.id.seekBar1);
         seekBar2 = (SeekBar)findViewById(R.id.seekBar2);
