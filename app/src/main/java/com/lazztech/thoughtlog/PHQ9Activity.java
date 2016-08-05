@@ -124,6 +124,8 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
                                     stringBuffer.append('\n');
                                     stringBuffer.append(String.valueOf("PHQ-9 Score: " +totalScoreInt));
                                     stringBuffer.append('\n');
+                                    stringBuffer.append(diagnosis.getText());
+                                    stringBuffer.append('\n');
                                     stringBuffer.append('\n');
 
 

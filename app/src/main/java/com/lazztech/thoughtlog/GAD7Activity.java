@@ -117,7 +117,10 @@ public class GAD7Activity extends AppCompatActivity implements SeekBar.OnSeekBar
                                     stringBuffer.append('\n');
                                     stringBuffer.append(String.valueOf("GAD-7 Score: " +totalScoreInt));
                                     stringBuffer.append('\n');
+                                    stringBuffer.append(diagnosis.getText());
                                     stringBuffer.append('\n');
+                                    stringBuffer.append('\n');
+
 
 
                                     // Print the stringBuffer to the file
