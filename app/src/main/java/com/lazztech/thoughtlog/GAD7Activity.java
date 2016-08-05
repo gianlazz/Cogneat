@@ -169,17 +169,13 @@ public class GAD7Activity extends AppCompatActivity implements SeekBar.OnSeekBar
             diagnosis.setText(String.valueOf("Provisional Diagnosis: "));
         }
         if (totalScoreInt >= 5 && totalScoreInt <= 9 ){
-            diagnosis.setText(String.valueOf("Provisional Diagnosis: " + "Minimal Symptoms*"));
+            diagnosis.setText(String.valueOf("Provisional Diagnosis: " + "Mild"));
         }
         if (totalScoreInt >= 10 && totalScoreInt <= 14){
-            diagnosis.setText(String.valueOf("Provisional Diagnosis: " + "Minor depression ++ Dysthymia*\n" +
-                    "Major Depression, mild"));
+            diagnosis.setText(String.valueOf("Provisional Diagnosis: " + "Moderate"));
         }
-        if (totalScoreInt >= 15 && totalScoreInt <= 19){
-            diagnosis.setText(String.valueOf("Provisional Diagnosis: " + "Major depression, moderately severe"));
-        }
-        if (totalScoreInt >=20){
-            diagnosis.setText(String.valueOf("Provisional Diagnosis: " + "Major Depression, severe"));
+        if (totalScoreInt >= 15){
+            diagnosis.setText(String.valueOf("Provisional Diagnosis: " + "Severe"));
         }
     }
 
