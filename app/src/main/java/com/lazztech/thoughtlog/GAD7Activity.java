@@ -115,7 +115,7 @@ public class GAD7Activity extends AppCompatActivity implements SeekBar.OnSeekBar
                                     StringBuffer stringBuffer = new StringBuffer();
                                     stringBuffer.append(Date);
                                     stringBuffer.append('\n');
-                                    stringBuffer.append(String.valueOf("Score: " +totalScoreInt));
+                                    stringBuffer.append(String.valueOf("GAD-7 Score: " +totalScoreInt));
                                     stringBuffer.append('\n');
                                     stringBuffer.append('\n');
 

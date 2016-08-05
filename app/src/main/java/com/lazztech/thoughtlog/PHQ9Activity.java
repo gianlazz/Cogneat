@@ -122,7 +122,7 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
                                     StringBuffer stringBuffer = new StringBuffer();
                                     stringBuffer.append(Date);
                                     stringBuffer.append('\n');
-                                    stringBuffer.append(String.valueOf("Score: " +totalScoreInt));
+                                    stringBuffer.append(String.valueOf("PHQ-9 Score: " +totalScoreInt));
                                     stringBuffer.append('\n');
                                     stringBuffer.append('\n');
 
