@@ -35,12 +35,12 @@
             android:theme="@style/AppTheme"
             />
         <activity
-            android:label="Depression Scale Test"
+            android:label="PHQ-9 Depression Test"
             android:theme="@style/AppTheme"
             android:name=".PHQ9Activity"
             />
         <activity
-            android:label="Anxiety Scale Test"
+            android:label="GAD-7 Anxiety Test"
             android:theme="@style/AppTheme"
             android:name=".GAD7Activity"
             />
