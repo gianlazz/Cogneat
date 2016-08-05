@@ -63,8 +63,6 @@ public class GAD7Activity extends AppCompatActivity implements SeekBar.OnSeekBar
         seekBar5 = (SeekBar)findViewById(R.id.seekBar5);
         seekBar6 = (SeekBar)findViewById(R.id.seekBar6);
         seekBar7 = (SeekBar)findViewById(R.id.seekBar7);
-        seekBar8 = (SeekBar)findViewById(R.id.seekBar8);
-        seekBar9 = (SeekBar)findViewById(R.id.seekBar9);
 
         //set change listener
         seekBar1.setOnSeekBarChangeListener(this);
@@ -74,8 +72,6 @@ public class GAD7Activity extends AppCompatActivity implements SeekBar.OnSeekBar
         seekBar5.setOnSeekBarChangeListener(this);
         seekBar6.setOnSeekBarChangeListener(this);
         seekBar7.setOnSeekBarChangeListener(this);
-        seekBar8.setOnSeekBarChangeListener(this);
-        seekBar9.setOnSeekBarChangeListener(this);
 
         result = (TextView)findViewById(R.id.totalScore);
         diagnosis = (TextView)findViewById(R.id.diagnosis);
@@ -164,9 +160,7 @@ public class GAD7Activity extends AppCompatActivity implements SeekBar.OnSeekBar
                 + seekBar4.getProgress()
                 + seekBar5.getProgress()
                 + seekBar6.getProgress()
-                + seekBar7.getProgress()
-                + seekBar8.getProgress()
-                + seekBar9.getProgress();
+                + seekBar7.getProgress();
 
         //Converts totalScoreInt integer into string and sets it to "result"
         result.setText(String.valueOf("Score: " +totalScoreInt));
