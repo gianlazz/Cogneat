@@ -40,7 +40,7 @@
             android:name=".PHQ9Activity"
             />
         <activity
-            android:label="Depression Scale Test"
+            android:label="Anxiety Scale Test"
             android:theme="@style/AppTheme"
             android:name=".GAD7Activity"
             />
