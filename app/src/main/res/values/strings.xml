@@ -2,7 +2,7 @@
 <resources>
 
     <string name="hello">Hello World, MainActivity!</string>
-    <string name="app_name">ThoughtLog</string>
+    <string name="app_name">Cogneat</string>
 	<string name="title">Challenge unhealthy automatic thoughts and build a more effective perspective on life the pragmatic way with C.B.T.</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>

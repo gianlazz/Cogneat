@@ -14,7 +14,7 @@
         android:icon="@drawable/image_3"
         android:label="@string/app_name" >
         <activity
-            android:label="Thought Log"
+            android:label="Cogneat"
             android:name=".MainActivity" 
 			android:theme="@style/AppTheme">
             <intent-filter >
