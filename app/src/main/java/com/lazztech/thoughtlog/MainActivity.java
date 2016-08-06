@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity
 	}
 
 	private void addDrawerItems() {
-		String[] osArray = { "Log History", "New Log", "Depression Test", "Anxiety Test", "Analytics", "Settings"};
+		String[] osArray = { "Log History", "Thought Log", "Depression Test", "Anxiety Test", "Analytics", "Settings"};
 		mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
 		mDrawerList.setAdapter(mAdapter);
 

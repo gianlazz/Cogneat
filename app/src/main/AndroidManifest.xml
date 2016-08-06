@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
 		<activity
-			android:label="New Log"
+			android:label="Thought Log"
 			android:theme="@style/AppTheme"
 			android:name=".NewLogActivity"
             android:windowSoftInputMode="adjustPan"

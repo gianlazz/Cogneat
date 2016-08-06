@@ -30,7 +30,7 @@
 
 		<Button
 			android:layout_height="80dp"
-			android:text="New Log"
+			android:text="Thought Log"
 			android:layout_width="match_parent"
 			android:layout_weight="1.0"
 			android:textSize="25sp"
