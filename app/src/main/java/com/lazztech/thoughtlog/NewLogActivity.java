@@ -59,11 +59,7 @@ public class NewLogActivity extends AppCompatActivity
 		//Set NewLogActivity.xml as user interface layout
 		setContentView(R.layout.newlog);
 
-		final TextInputLayout nameWrapper = (TextInputLayout) findViewById(R.id.nameWrapper);
-		nameWrapper.setHint("Name:");
-
 		// bind GUI elements with local controls
-		txtData = (EditText) findViewById(R.id.txtData);
 		situation = (EditText) findViewById(R.id.situation);
 		thoughts = (EditText) findViewById(R.id.thoughts);
 		emotions = (EditText) findViewById(R.id.emotions);
@@ -180,8 +176,6 @@ public class NewLogActivity extends AppCompatActivity
 										StringBuffer stringBuffer = new StringBuffer();
 										stringBuffer.append(Date);
 										stringBuffer.append('\n');
-										stringBuffer.append("Name: " + txtData.getText());
-										stringBuffer.append('\n');
 										stringBuffer.append("Situation: " + situation.getText());
 										stringBuffer.append('\n');
 										stringBuffer.append("Thoughts: " + thoughts.getText());
@@ -205,7 +199,7 @@ public class NewLogActivity extends AppCompatActivity
 										// Close everything out
 										printStream.close();
 										fOut.close();
-										txtData.setText(""); //ClearScreen
+										//ClearScreen
 										situation.setText("");
 										thoughts.setText("");
 										emotions.setText("");

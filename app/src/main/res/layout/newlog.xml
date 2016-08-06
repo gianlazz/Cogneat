@@ -15,22 +15,6 @@
 			android:orientation="vertical">
 
 			<android.support.design.widget.TextInputLayout
-				android:id="@+id/nameWrapper"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:theme="@style/Theme.AppCompat.Light">
-
-				<EditText
-					android:layout_height="wrap_content"
-					android:inputType="textPersonName"
-					android:ems="10"
-					android:layout_width="match_parent"
-					android:hint="Name:"
-					android:id="@+id/txtData" />
-
-			</android.support.design.widget.TextInputLayout>
-
-			<android.support.design.widget.TextInputLayout
 				android:id="@+id/situationWrapper"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
