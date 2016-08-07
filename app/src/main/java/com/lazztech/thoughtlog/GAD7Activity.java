@@ -7,6 +7,7 @@ import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,6 +42,8 @@ public class GAD7Activity extends AppCompatActivity implements SeekBar.OnSeekBar
     SeekBar seekBar9;
     int seekBar9value;        //The SeekBar value output
 
+    EditText situation;
+
     int totalScoreInt;
 
     String Date = "Date: ";
@@ -72,6 +75,8 @@ public class GAD7Activity extends AppCompatActivity implements SeekBar.OnSeekBar
         seekBar5.setOnSeekBarChangeListener(this);
         seekBar6.setOnSeekBarChangeListener(this);
         seekBar7.setOnSeekBarChangeListener(this);
+
+        situation = (EditText) findViewById(R.id.situation);
 
         result = (TextView)findViewById(R.id.totalScore);
         diagnosis = (TextView)findViewById(R.id.diagnosis);
@@ -118,6 +123,8 @@ public class GAD7Activity extends AppCompatActivity implements SeekBar.OnSeekBar
                                     stringBuffer.append(String.valueOf("GAD-7 Score: " +totalScoreInt));
                                     stringBuffer.append('\n');
                                     stringBuffer.append(diagnosis.getText());
+                                    stringBuffer.append('\n');
+                                    stringBuffer.append("Situation: " + situation.getText());
                                     stringBuffer.append('\n');
                                     stringBuffer.append('\n');
 

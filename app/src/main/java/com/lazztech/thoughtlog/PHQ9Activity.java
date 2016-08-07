@@ -7,6 +7,7 @@ import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.view.View.OnClickListener;
@@ -44,6 +45,8 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
     SeekBar seekBar9;
     int seekBar9value;        //The SeekBar value output
 
+    EditText situation;
+
     int totalScoreInt;
 
     String Date = "Date: ";
@@ -79,6 +82,8 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
         seekBar7.setOnSeekBarChangeListener(this);
         seekBar8.setOnSeekBarChangeListener(this);
         seekBar9.setOnSeekBarChangeListener(this);
+
+        situation = (EditText) findViewById(R.id.situation);
 
         result = (TextView)findViewById(R.id.totalScore);
         diagnosis = (TextView)findViewById(R.id.diagnosis);
@@ -125,6 +130,8 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
                                     stringBuffer.append(String.valueOf("PHQ-9 Score: " +totalScoreInt));
                                     stringBuffer.append('\n');
                                     stringBuffer.append(diagnosis.getText());
+                                    stringBuffer.append('\n');
+                                    stringBuffer.append("Situation: " + situation.getText());
                                     stringBuffer.append('\n');
                                     stringBuffer.append('\n');
 

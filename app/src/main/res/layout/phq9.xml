@@ -142,6 +142,22 @@
         android:id="@+id/seekBar9"
         android:max="3" />
 
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/situationWrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.AppCompat.Light">
+
+                <EditText
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:ems="10"
+                    android:layout_width="match_parent"
+                    android:hint="Situation:"
+                    android:id="@+id/situation" />
+
+            </android.support.design.widget.TextInputLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
