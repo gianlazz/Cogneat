@@ -28,22 +28,42 @@
 			android:theme="@style/AppTheme"
 			android:name=".NewLogActivity"
             android:windowSoftInputMode="adjustPan"
-            />
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.Parent_Activity"
+                android:value=".MainActivity">
+            </meta-data>
+        </activity>
         <activity
             android:label="Log History"
             android:name=".LogHistoryActivity"
             android:theme="@style/AppTheme"
-            />
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.Parent_Activity"
+                android:value=".MainActivity">
+            </meta-data>
+         </activity>
         <activity
             android:label="PHQ-9 Depression Test"
             android:theme="@style/AppTheme"
             android:name=".PHQ9Activity"
-            />
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.Parent_Activity"
+                android:value=".MainActivity">
+            </meta-data>
+        </activity>
         <activity
             android:label="GAD-7 Anxiety Test"
             android:theme="@style/AppTheme"
             android:name=".GAD7Activity"
-            />
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.Parent_Activity"
+                android:value=".MainActivity">
+            </meta-data>
+        </activity>
     </application>
 
 </manifest>
