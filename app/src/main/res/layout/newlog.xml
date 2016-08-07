@@ -22,7 +22,7 @@
 
 				<EditText
 					android:layout_height="wrap_content"
-					android:inputType="textMultiLine"
+					android:inputType="textMultiLine|textCapSentences"
 					android:ems="10"
 					android:layout_width="match_parent"
 					android:hint="Situation:"
@@ -38,7 +38,7 @@
 
 				<EditText
 					android:layout_height="wrap_content"
-					android:inputType="textMultiLine"
+					android:inputType="textMultiLine|textCapSentences"
 					android:ems="10"
 					android:layout_width="match_parent"
 					android:hint="Thoughts:"
@@ -54,6 +54,7 @@
 
 				<EditText
 					android:layout_height="wrap_content"
+					android:inputType="textMultiLine|textCapSentences"
 					android:ems="10"
 					android:layout_width="match_parent"
 					android:hint="Emotions:"
@@ -69,6 +70,7 @@
 
 				<EditText
 					android:layout_height="wrap_content"
+					android:inputType="textMultiLine|textCapSentences"
 					android:ems="10"
 					android:layout_width="match_parent"
 					android:hint="Behavior:"
@@ -140,6 +142,7 @@
 
 				<EditText
 					android:layout_height="wrap_content"
+					android:inputType="textMultiLine|textCapSentences"
 					android:ems="10"
 					android:layout_width="match_parent"
 					android:hint="Alternative Behaviors:"
@@ -155,10 +158,11 @@
 
 					<EditText
 					android:layout_height="wrap_content"
+						android:inputType="textMultiLine|textCapSentences"
 					android:ems="10"
 					android:layout_width="match_parent"
 					android:hint="Alternative Thoughts:"
-					android:id="@+id/altthoughts" />
+					android:id="@+id/altthoughts"/>
 
 			</android.support.design.widget.TextInputLayout>
 
