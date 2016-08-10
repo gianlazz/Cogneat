@@ -146,11 +146,22 @@ public class NewLogActivity extends AppCompatActivity
 		}
 	}
 
+	public void AddData() {
+		boolean isInserted = myDb.insertData(situation.getText().toString(),
+				thoughts.getText().toString(),
+				emotions.getText().toString());
+		if(isInserted =true)
+			Toast.makeText(NewLogActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
+	}
+
 	public void SaveData() {
+
 
 		btnWriteSDFile.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
+
+				AddData();
 
 				//Put up the Yes/No message box
 				AlertDialog.Builder builder = new AlertDialog.Builder(NewLogActivity.this);
