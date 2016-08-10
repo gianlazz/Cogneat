@@ -154,6 +154,12 @@ public class NewLogActivity extends AppCompatActivity
 			Toast.makeText(NewLogActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
 	}
 
+	public void CurrentDateTime() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mma");
+		String currentDateandTime = sdf.format(new Date());
+		Date+=" "+currentDateandTime;
+	}
+
 	public void SaveData() {
 
 
@@ -188,9 +194,7 @@ public class NewLogActivity extends AppCompatActivity
 									// Open the printStream to allow for Strings to be written
 									PrintStream printStream = new PrintStream(fOut);
 
-									SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mma");
-									String currentDateandTime = sdf.format(new Date());
-									Date+=" "+currentDateandTime;
+									CurrentDateTime();
 
 
 									// Using a stringBuffer to append all the values to
