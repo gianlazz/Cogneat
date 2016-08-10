@@ -82,6 +82,8 @@ public class NewLogActivity extends AppCompatActivity
 		altthoughts = (EditText) findViewById(R.id.altthoughts);
 
 		btnWriteSDFile = (Button) findViewById(R.id.btnWriteSDFile);
+
+		SaveData();
 	}
 
 		//Checkbox onclick actions
@@ -142,95 +144,93 @@ public class NewLogActivity extends AppCompatActivity
 					distortions.remove(blackandwhitethinkingString);
 				break;
 		}
+	}
+
+	public void SaveData() {
+
 		btnWriteSDFile.setOnClickListener(new OnClickListener() {
 
-				public void onClick(View v) {
-					boolean isInserted = myDb.insertData(situation.getText().toString(),
-							thoughts.getText().toString(),
-							emotions.getText().toString());
-					if(isInserted = true)
-						Toast.makeText(NewLogActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
-					else
-						Toast.makeText(NewLogActivity.this, "Data Not Inserted", Toast.LENGTH_LONG).show();
+			public void onClick(View v) {
 
-					//Put up the Yes/No message box
-					AlertDialog.Builder builder = new AlertDialog.Builder(NewLogActivity.this);
-					builder
-							.setTitle("Are you sure you're finished?")
-							.setMessage("Touch \"YES\" to save.")
-							//.setIcon(android.R.drawable.ic_dialog_alert)
-							.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog, int which) {
-									// write on SD card file data in the text box
-									try {
-										File directory = Environment.getExternalStorageDirectory();
-										File myFile = new File(directory, "mythoughtlog.txt");
+				//Put up the Yes/No message box
+				AlertDialog.Builder builder = new AlertDialog.Builder(NewLogActivity.this);
+				builder
+						.setTitle("Are you sure you're finished?")
+						.setMessage("Touch \"YES\" to save.")
+								//.setIcon(android.R.drawable.ic_dialog_alert)
+						.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int which) {
+								// write on SD card file data in the text box
+								try {
+									File directory = Environment.getExternalStorageDirectory();
+									File myFile = new File(directory, "mythoughtlog.txt");
 
-										// Check if the file already exists so you don't keep creating
-										if(!myFile.exists()) {
-											//Log.i(TAG, "Creating the file as it doesn't exist already");
-											myFile.createNewFile();
-										}
-
-										// Open the FileoutputStream
-										FileOutputStream fOut = new FileOutputStream(myFile, true);
-
-										// Open the printStream to allow for Strings to be written
-										PrintStream printStream = new PrintStream(fOut);
-
-										SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mma");
-										String currentDateandTime = sdf.format(new Date());
-										Date+=" "+currentDateandTime;
-
-
-										// Using a stringBuffer to append all the values to
-										StringBuffer stringBuffer = new StringBuffer();
-										stringBuffer.append(Date);
-										stringBuffer.append('\n');
-										stringBuffer.append("Situation: " + situation.getText());
-										stringBuffer.append('\n');
-										stringBuffer.append("Thoughts: " + thoughts.getText());
-										stringBuffer.append('\n');
-										stringBuffer.append("Emotions: " + emotions.getText());
-										stringBuffer.append('\n');
-										stringBuffer.append("Behavior: " + behavior.getText());
-										stringBuffer.append('\n');
-										stringBuffer.append("Distortions: ");
-										stringBuffer.append(distortions);
-										stringBuffer.append('\n');
-										stringBuffer.append("Alt Behavior: " + altbehavior.getText());
-										stringBuffer.append('\n');
-										stringBuffer.append("Alt Thoughts: " + altthoughts.getText());
-										stringBuffer.append('\n');
-										stringBuffer.append('\n');
-
-										// Print the stringBuffer to the file
-										printStream.print(stringBuffer.toString());
-
-										// Close everything out
-										printStream.close();
-										fOut.close();
-										//ClearScreen
-										situation.setText("");
-										thoughts.setText("");
-										emotions.setText("");
-										behavior.setText("");
-										altbehavior.setText("");
-										altthoughts.setText("");
-										Toast.makeText(getBaseContext(),
-												"Saved to 'mythoughtlog.txt'",
-												Toast.LENGTH_SHORT).show();
-									} catch (Exception e) {
-										e.printStackTrace();
-										Toast.makeText(getBaseContext(), e.getMessage(),
-												Toast.LENGTH_SHORT).show();
+									// Check if the file already exists so you don't keep creating
+									if(!myFile.exists()) {
+										//Log.i(TAG, "Creating the file as it doesn't exist already");
+										myFile.createNewFile();
 									}
+
+									// Open the FileoutputStream
+									FileOutputStream fOut = new FileOutputStream(myFile, true);
+
+									// Open the printStream to allow for Strings to be written
+									PrintStream printStream = new PrintStream(fOut);
+
+									SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mma");
+									String currentDateandTime = sdf.format(new Date());
+									Date+=" "+currentDateandTime;
+
+
+									// Using a stringBuffer to append all the values to
+									StringBuffer stringBuffer = new StringBuffer();
+									stringBuffer.append(Date);
+									stringBuffer.append('\n');
+									stringBuffer.append("Situation: " + situation.getText());
+									stringBuffer.append('\n');
+									stringBuffer.append("Thoughts: " + thoughts.getText());
+									stringBuffer.append('\n');
+									stringBuffer.append("Emotions: " + emotions.getText());
+									stringBuffer.append('\n');
+									stringBuffer.append("Behavior: " + behavior.getText());
+									stringBuffer.append('\n');
+									stringBuffer.append("Distortions: ");
+									stringBuffer.append(distortions);
+									stringBuffer.append('\n');
+									stringBuffer.append("Alt Behavior: " + altbehavior.getText());
+									stringBuffer.append('\n');
+									stringBuffer.append("Alt Thoughts: " + altthoughts.getText());
+									stringBuffer.append('\n');
+									stringBuffer.append('\n');
+
+									// Print the stringBuffer to the file
+									printStream.print(stringBuffer.toString());
+
+									// Close everything out
+									printStream.close();
+									fOut.close();
+									//ClearScreen
+									situation.setText("");
+									thoughts.setText("");
+									emotions.setText("");
+									behavior.setText("");
+									altbehavior.setText("");
+									altthoughts.setText("");
+									Toast.makeText(getBaseContext(),
+											"Saved to 'mythoughtlog.txt'",
+											Toast.LENGTH_SHORT).show();
+								} catch (Exception e) {
+									e.printStackTrace();
+									Toast.makeText(getBaseContext(), e.getMessage(),
+											Toast.LENGTH_SHORT).show();
 								}
-							})
-							.setNegativeButton("No", null)						//Do nothing on no
-							.show();
+							}
+						})
+						.setNegativeButton("No", null)						//Do nothing on no
+						.show();
 
 			}//Save onClick
 		});// btnWriteSDFile
+
 	}
 }// AndSDcard
