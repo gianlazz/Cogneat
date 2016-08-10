@@ -50,6 +50,8 @@ public class NewLogActivity extends AppCompatActivity
 	EditText altbehavior;
 	EditText altthoughts;
 	Button btnWriteSDFile;
+
+	DatabaseHelper myDb;
 	/** Called when the activity is first created. */
 
 	@Override
@@ -58,6 +60,8 @@ public class NewLogActivity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		//Set NewLogActivity.xml as user interface layout
 		setContentView(R.layout.newlog);
+
+		myDb = new DatabaseHelper(this);
 
 		// bind GUI elements with local controls
 		situation = (EditText) findViewById(R.id.situation);
@@ -141,6 +145,13 @@ public class NewLogActivity extends AppCompatActivity
 		btnWriteSDFile.setOnClickListener(new OnClickListener() {
 
 				public void onClick(View v) {
+					boolean isInserted = myDb.insertData(situation.getText().toString(),
+							thoughts.getText().toString(),
+							emotions.getText().toString());
+					if(isInserted = true)
+						Toast.makeText(NewLogActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
+					else
+						Toast.makeText(NewLogActivity.this, "Data Not Inserted", Toast.LENGTH_LONG).show();
 
 					//Put up the Yes/No message box
 					AlertDialog.Builder builder = new AlertDialog.Builder(NewLogActivity.this);
