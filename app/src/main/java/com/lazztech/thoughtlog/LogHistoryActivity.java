@@ -2,6 +2,7 @@ package com.lazztech.thoughtlog;
 
 import android.app.*;
 import android.content.*;
+import android.database.Cursor;
 import android.os.*;
 import android.support.v7.app.AppCompatActivity;
 import android.view.*;
@@ -14,6 +15,7 @@ public class LogHistoryActivity extends AppCompatActivity
     TextView thoughtLogView;
     String line;
 
+    DatabaseHelper myDb;
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -22,6 +24,8 @@ public class LogHistoryActivity extends AppCompatActivity
         //Set MainActivity.xml as user interface layout
         setContentView(R.layout.loghistory);
         // bind GUI elements with local controls
+
+        myDb = new DatabaseHelper(this);
 
         thoughtLogView = (TextView) findViewById(R.id.logTextView);
         GetPhoneAddress();
@@ -34,6 +38,24 @@ public class LogHistoryActivity extends AppCompatActivity
     }
 
     private String GetPhoneAddress() {
+
+        Cursor res= myDb.getAllData();
+        if (res.getCount() == 0) {
+            //Show no data message
+            Toast.makeText(LogHistoryActivity.this, "No entries in database", Toast.LENGTH_LONG).show();
+        }
+
+        StringBuffer buffer = new StringBuffer();
+        while (res.moveToNext()){
+            buffer.append("ID :" + res.getString(0)+"\n");
+            buffer.append("Name :" + res.getString(1)+"\n");
+            buffer.append("Surname :" + res.getString(2)+"\n");
+            buffer.append("Marks :" + res.getString(3)+"\n\n");
+        }
+
+        // Show all data
+
+
         File directory = Environment.getExternalStorageDirectory();
         File myFile = new File(directory, "mythoughtlog.txt");
         //File file = new File(Environment.getExternalStorageDirectory() + "mythoughtlog.txt");
