@@ -35,25 +35,39 @@ public class LogHistoryActivity extends AppCompatActivity
         if (saved_phone.length()>0) {
             tvphone.setText(saved_phone);
         }
+
+        viewAll();
+    }
+
+    public void viewAll() {
+    Cursor res= myDb.getAllData();
+    if (res.getCount() == 0) {
+        //Show no data message
+        showMessage("Error", "Nothing found");
+    }
+
+    StringBuffer buffer = new StringBuffer();
+    while (res.moveToNext()){
+        buffer.append("ID :" + res.getString(0)+"\n");
+        buffer.append("Name :" + res.getString(1)+"\n");
+        buffer.append("Surname :" + res.getString(2)+"\n");
+        buffer.append("Marks :" + res.getString(3)+"\n\n");
+    }
+
+    // Show all data
+    showMessage("Data", buffer.toString());
+
+}
+
+    public void showMessage(String title, String Message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(Message);
+        builder.show();
     }
 
     private String GetPhoneAddress() {
-
-        Cursor res= myDb.getAllData();
-        if (res.getCount() == 0) {
-            //Show no data message
-            Toast.makeText(LogHistoryActivity.this, "No entries in database", Toast.LENGTH_LONG).show();
-        }
-
-        StringBuffer buffer = new StringBuffer();
-        while (res.moveToNext()){
-            buffer.append("ID :" + res.getString(0)+"\n");
-            buffer.append("Name :" + res.getString(1)+"\n");
-            buffer.append("Surname :" + res.getString(2)+"\n");
-            buffer.append("Marks :" + res.getString(3)+"\n\n");
-        }
-
-        // Show all data
 
 
         File directory = Environment.getExternalStorageDirectory();
