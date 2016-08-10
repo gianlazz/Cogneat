@@ -20,11 +20,14 @@ public class MainActivity extends AppCompatActivity
 	private DrawerLayout mDrawerLayout;
 	private String mActivityTitle;
 
+	DatabaseHelper myDb;
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+		myDb = new DatabaseHelper(this);
 
 		mDrawerList = (ListView)findViewById(R.id.navList);
 		mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
