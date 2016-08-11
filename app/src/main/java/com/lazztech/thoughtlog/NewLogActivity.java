@@ -149,7 +149,11 @@ public class NewLogActivity extends AppCompatActivity
 	public void AddData() {
 		boolean isInserted = myDb.insertData(situation.getText().toString(),
 				thoughts.getText().toString(),
-				emotions.getText().toString());
+				emotions.getText().toString(),
+				behavior.getText().toString(),
+				distortions.toString(),
+				altbehavior.getText().toString(),
+				altthoughts.getText().toString());
 		if(isInserted =true)
 			Toast.makeText(NewLogActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
 	}
