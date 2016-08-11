@@ -7,6 +7,7 @@ import android.os.*;
 import android.support.v7.app.AppCompatActivity;
 import android.view.*;
 import android.widget.*;
+import android.widget.SimpleCursorAdapter;
 import java.io.*;
 
 public class LogHistoryActivity extends AppCompatActivity
@@ -37,6 +38,8 @@ public class LogHistoryActivity extends AppCompatActivity
         }
 
         viewAll();
+
+        populateListView();
     }
 
     public void viewAll() {
@@ -58,6 +61,16 @@ public class LogHistoryActivity extends AppCompatActivity
     showMessage("Data", buffer.toString());
 
 }
+
+    private void populateListView(){
+        Cursor cursor = myDb.getAllData();
+        String[] fromFieldNames = new String[] {DatabaseHelper.COL_1,DatabaseHelper.COL_2};
+        int[] toViewIDs = new int[] {R.id.textViewItemNumber, R.id.textViewItemTask};
+        SimpleCursorAdapter myCursorAdapter;
+        myCursorAdapter = new SimpleCursorAdapter(getBaseContext(),R.layout.item_layout, cursor, fromFieldNames, toViewIDs, 0);
+        ListView myList = (ListView) findViewById(R.id.listViewTasks);
+        myList.setAdapter(myCursorAdapter);
+    }
 
     public void showMessage(String title, String Message){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
