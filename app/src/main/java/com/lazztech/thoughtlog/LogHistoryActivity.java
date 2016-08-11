@@ -28,15 +28,6 @@ public class LogHistoryActivity extends AppCompatActivity
 
         myDb = new DatabaseHelper(this);
 
-        thoughtLogView = (TextView) findViewById(R.id.logTextView);
-        GetPhoneAddress();
-
-        final TextView tvphone = (TextView) findViewById(R.id.logTextView);
-        String saved_phone = GetPhoneAddress();
-        if (saved_phone.length()>0) {
-            tvphone.setText(saved_phone);
-        }
-
         viewAll();
 
         populateListView();
