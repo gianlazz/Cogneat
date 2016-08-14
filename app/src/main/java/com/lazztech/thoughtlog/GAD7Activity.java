@@ -95,55 +95,14 @@ public class GAD7Activity extends AppCompatActivity implements SeekBar.OnSeekBar
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 // write on SD card file data in the text box
-                                try {
-                                    File directory = Environment.getExternalStorageDirectory();
-                                    File myFile = new File(directory, "mythoughtlog.txt");
 
-                                    // Check if the file already exists so you don't keep creating
-                                    if (!myFile.exists()) {
-                                        //Log.i(TAG, "Creating the file as it doesn't exist already");
-                                        myFile.createNewFile();
-                                    }
-
-                                    // Open the FileoutputStream
-                                    FileOutputStream fOut = new FileOutputStream(myFile, true);
-
-                                    // Open the printStream to allow for Strings to be written
-                                    PrintStream printStream = new PrintStream(fOut);
 
                                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mma");
                                     String currentDateandTime = sdf.format(new Date());
                                     Date += " " + currentDateandTime;
 
 
-                                    // Using a stringBuffer to append all the values to
-                                    StringBuffer stringBuffer = new StringBuffer();
-                                    stringBuffer.append(Date);
-                                    stringBuffer.append('\n');
-                                    stringBuffer.append(String.valueOf("GAD-7 Score: " +totalScoreInt));
-                                    stringBuffer.append('\n');
-                                    stringBuffer.append(diagnosis.getText());
-                                    stringBuffer.append('\n');
-                                    stringBuffer.append("Situation: " + situation.getText());
-                                    stringBuffer.append('\n');
-                                    stringBuffer.append('\n');
 
-
-
-                                    // Print the stringBuffer to the file
-                                    printStream.print(stringBuffer.toString());
-
-                                    // Close everything out
-                                    printStream.close();
-                                    fOut.close();
-                                    Toast.makeText(getBaseContext(),
-                                            "Saved to 'mythoughtlog.txt'",
-                                            Toast.LENGTH_SHORT).show();
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                    Toast.makeText(getBaseContext(), e.getMessage(),
-                                            Toast.LENGTH_SHORT).show();
-                                }
                             }
                         })
                         .setNegativeButton("No", null)                        //Do nothing on no
