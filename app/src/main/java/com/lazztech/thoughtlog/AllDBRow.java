@@ -47,14 +47,14 @@ public class AllDBRow extends AppCompatActivity {
         altbehavior = (TextView) findViewById(R.id.altbehaviorTextView);
         altthoughts = (TextView) findViewById(R.id.altthoughsTextView);
 
-        id.setText(iddata);
-        situation.setText(situationdata);
-        thoughts.setText(thoughtsdata);
-        emotions.setText(emotionsdata);
-        behavior.setText(behaviordata);
-        distortions.setText(distortionsdata);
-        altbehavior.setText(altbehaviordata);
-        altthoughts.setText(altthoughtsdata);
+        id.setText("ID: " + iddata);
+        situation.setText("Situation: " + situationdata);
+        thoughts.setText("Thoughts: " + thoughtsdata);
+        emotions.setText("Emotions: " + emotionsdata);
+        behavior.setText("Behavior: " + behaviordata);
+        distortions.setText("Distortions: " + distortionsdata);
+        altbehavior.setText("Alt Behavior: " + altbehaviordata);
+        altthoughts.setText("Alt Thoughts: " +  altthoughtsdata);
 
     }
 }
