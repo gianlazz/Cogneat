@@ -178,6 +178,9 @@ public class NewLogActivity extends AppCompatActivity
 						.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int which) {
 								AddData();
+
+								Intent intent = new Intent(NewLogActivity.this, MainActivity.class);
+								startActivity(intent);
 								// write on SD card file data in the text box
 								try {
 									File directory = Environment.getExternalStorageDirectory();
