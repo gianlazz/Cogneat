@@ -165,13 +165,9 @@ public class NewLogActivity extends AppCompatActivity
 	}
 
 	public void SaveData() {
-
-
 		btnWriteSDFile.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-
-				AddData();
 
 				//Put up the Yes/No message box
 				AlertDialog.Builder builder = new AlertDialog.Builder(NewLogActivity.this);
@@ -181,6 +177,7 @@ public class NewLogActivity extends AppCompatActivity
 								//.setIcon(android.R.drawable.ic_dialog_alert)
 						.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int which) {
+								AddData();
 								// write on SD card file data in the text box
 								try {
 									File directory = Environment.getExternalStorageDirectory();
