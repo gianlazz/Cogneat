@@ -68,10 +68,10 @@
             android:label="Database Row Info"
             android:theme="@style/AppTheme"
             android:name=".AllDBRow"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".LogHistoryActivity">
             <meta-data
                 android:name="android.support.Parent_Activity"
-                android:value=".MainActivity">
+                android:value=".LogHistoryActivity">
             </meta-data>
         </activity>
     </application>
