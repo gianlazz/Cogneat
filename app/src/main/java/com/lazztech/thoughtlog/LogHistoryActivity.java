@@ -10,21 +10,28 @@ import android.widget.*;
 import android.widget.SimpleCursorAdapter;
 import java.io.*;
 
+import static com.lazztech.thoughtlog.DatabaseHelper.COL_1;
+
 public class LogHistoryActivity extends AppCompatActivity
 {
     // GUI controls
     TextView thoughtLogView;
     String line;
+    ListView dblist;
+
 
     DatabaseHelper myDb;
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
+
         super.onCreate(savedInstanceState);
         //Set MainActivity.xml as user interface layout
         setContentView(R.layout.loghistory);
         // bind GUI elements with local controls
+
+        dblist = (ListView) findViewById(R.id.listViewTasks);
 
         myDb = new DatabaseHelper(this);
 
@@ -55,7 +62,7 @@ public class LogHistoryActivity extends AppCompatActivity
 
     private void populateListView(){
         Cursor cursor = myDb.getAllData();
-        String[] fromFieldNames = new String[] {DatabaseHelper.COL_1,DatabaseHelper.COL_2, DatabaseHelper.COL_3, DatabaseHelper.COL_4, DatabaseHelper.COL_5, DatabaseHelper.COL_6, DatabaseHelper.COL_7, DatabaseHelper.COL_8};
+        String[] fromFieldNames = new String[] {COL_1,DatabaseHelper.COL_2, DatabaseHelper.COL_3, DatabaseHelper.COL_4, DatabaseHelper.COL_5, DatabaseHelper.COL_6, DatabaseHelper.COL_7, DatabaseHelper.COL_8};
         int[] toViewIDs = new int[] {R.id.textViewItemNumber, R.id.textViewItemSituation, R.id.textViewitemthoughts, R.id.textViewemotions, R.id.textViewbehavior, R.id.textViewdistortions, R.id.textViewaltbehavior, R.id.textViewaltthoughts};
         SimpleCursorAdapter myCursorAdapter;
         myCursorAdapter = new SimpleCursorAdapter(getBaseContext(),R.layout.item_layout, cursor, fromFieldNames, toViewIDs, 0);
@@ -69,6 +76,17 @@ public class LogHistoryActivity extends AppCompatActivity
         builder.setTitle(title);
         builder.setMessage(Message);
         builder.show();
+    }
+
+    public void listViewItemClick(){
+        dblist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(LogHistoryActivity.this, AllDBRow.class);
+                intent.putExtra(COL_1, id);
+                startActivity(intent);
+            }
+        });
     }
 
     private String GetPhoneAddress() {
