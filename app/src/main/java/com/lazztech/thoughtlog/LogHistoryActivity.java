@@ -94,36 +94,4 @@ public class LogHistoryActivity extends AppCompatActivity
         });
     }
 
-    private String GetPhoneAddress() {
-
-
-        File directory = Environment.getExternalStorageDirectory();
-        File myFile = new File(directory, "mythoughtlog.txt");
-        //File file = new File(Environment.getExternalStorageDirectory() + "mythoughtlog.txt");
-        if (!myFile.exists()){
-            String line = "Complete a new log entry and they will shown here.";
-            return line;
-        }
-
-        //Read text from file
-        //StringBuilder text = new StringBuilder();
-        try (BufferedReader br = new BufferedReader(new FileReader(myFile))) {
-            String line = br.readLine();
-            if (line == null) {
-                return null;
-            }
-            StringBuilder retVal = new StringBuilder(line);
-            line = br.readLine();
-            while (line != null) {
-                retVal.append(System.lineSeparator()).append(line);
-                line = br.readLine();
-            }
-            return retVal.toString();
-        }
-        catch (IOException e) {
-            //You'll need to add proper error handling here
-        }
-        return line;
-    }
-
 }
