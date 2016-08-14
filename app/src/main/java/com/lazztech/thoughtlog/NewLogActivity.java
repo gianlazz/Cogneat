@@ -89,10 +89,8 @@ public class NewLogActivity extends AppCompatActivity
 		//Checkbox onclick actions
 	public void onCheckboxClicked(View view)
 	{
-
 		// Is the view now checked?
 		boolean checked = ((CheckBox) view).isChecked();
-
 		// Check which checkbox was clicked
 		switch(view.getId()) {
 			case R.id.fortunetellingCheckBox1:
@@ -143,7 +141,7 @@ public class NewLogActivity extends AppCompatActivity
 				else
 					distortions.remove(blackandwhitethinkingString);
 				break;
-		}
+			}
 	}
 
 	public void AddData() {
@@ -185,10 +183,8 @@ public class NewLogActivity extends AppCompatActivity
 						.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int which) {
 								AddData();
-
 								Intent intent = new Intent(NewLogActivity.this, MainActivity.class);
 								startActivity(intent);
-
 								CurrentDateTime();
 
 								//ClearScreen
