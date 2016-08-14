@@ -10,8 +10,6 @@ import android.widget.*;
 import android.widget.SimpleCursorAdapter;
 import java.io.*;
 
-import static com.lazztech.thoughtlog.DatabaseHelper.COL_1;
-
 public class LogHistoryActivity extends AppCompatActivity
 {
     // GUI controls
@@ -38,6 +36,7 @@ public class LogHistoryActivity extends AppCompatActivity
         viewAll();
 
         populateListView();
+        listViewItemClick();
     }
 
     public void viewAll() {
@@ -62,7 +61,7 @@ public class LogHistoryActivity extends AppCompatActivity
 
     private void populateListView(){
         Cursor cursor = myDb.getAllData();
-        String[] fromFieldNames = new String[] {COL_1,DatabaseHelper.COL_2, DatabaseHelper.COL_3, DatabaseHelper.COL_4, DatabaseHelper.COL_5, DatabaseHelper.COL_6, DatabaseHelper.COL_7, DatabaseHelper.COL_8};
+        String[] fromFieldNames = new String[] {DatabaseHelper.COL_1,DatabaseHelper.COL_2, DatabaseHelper.COL_3, DatabaseHelper.COL_4, DatabaseHelper.COL_5, DatabaseHelper.COL_6, DatabaseHelper.COL_7, DatabaseHelper.COL_8};
         int[] toViewIDs = new int[] {R.id.textViewItemNumber, R.id.textViewItemSituation, R.id.textViewitemthoughts, R.id.textViewemotions, R.id.textViewbehavior, R.id.textViewdistortions, R.id.textViewaltbehavior, R.id.textViewaltthoughts};
         SimpleCursorAdapter myCursorAdapter;
         myCursorAdapter = new SimpleCursorAdapter(getBaseContext(),R.layout.item_layout, cursor, fromFieldNames, toViewIDs, 0);
@@ -82,8 +81,25 @@ public class LogHistoryActivity extends AppCompatActivity
         dblist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Cursor cursor = (Cursor) dblist.getItemAtPosition(position);
+                String getid = cursor.getString(0);
+                String getsituation = cursor.getString(1);
+                String getthoughts = cursor.getString(2);
+                String getemotions = cursor.getString(3);
+                String getbehaviors = cursor.getString(4);
+                String getdistortions = cursor.getString(5);
+                String getaltbehaviors = cursor.getString(6);
+                String getaltthoughts = cursor.getString(7);
+
                 Intent intent = new Intent(LogHistoryActivity.this, AllDBRow.class);
-                intent.putExtra(COL_1, id);
+                intent.putExtra("id", getid);
+                intent.putExtra("situation", getsituation);
+                intent.putExtra("thoughts", getthoughts);
+                intent.putExtra("emotions", getemotions);
+                intent.putExtra("behaviors", getbehaviors);
+                intent.putExtra("distortions", getdistortions);
+                intent.putExtra("altbehaviors", getaltbehaviors);
+                intent.putExtra("altthoughts", getaltthoughts);
                 startActivity(intent);
             }
         });
