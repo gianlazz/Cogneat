@@ -181,53 +181,9 @@ public class NewLogActivity extends AppCompatActivity
 
 								Intent intent = new Intent(NewLogActivity.this, MainActivity.class);
 								startActivity(intent);
-								// write on SD card file data in the text box
-								try {
-									File directory = Environment.getExternalStorageDirectory();
-									File myFile = new File(directory, "mythoughtlog.txt");
-
-									// Check if the file already exists so you don't keep creating
-									if(!myFile.exists()) {
-										//Log.i(TAG, "Creating the file as it doesn't exist already");
-										myFile.createNewFile();
-									}
-
-									// Open the FileoutputStream
-									FileOutputStream fOut = new FileOutputStream(myFile, true);
-
-									// Open the printStream to allow for Strings to be written
-									PrintStream printStream = new PrintStream(fOut);
 
 									CurrentDateTime();
 
-
-									// Using a stringBuffer to append all the values to
-									StringBuffer stringBuffer = new StringBuffer();
-									stringBuffer.append(Date);
-									stringBuffer.append('\n');
-									stringBuffer.append("Situation: " + situation.getText());
-									stringBuffer.append('\n');
-									stringBuffer.append("Thoughts: " + thoughts.getText());
-									stringBuffer.append('\n');
-									stringBuffer.append("Emotions: " + emotions.getText());
-									stringBuffer.append('\n');
-									stringBuffer.append("Behavior: " + behavior.getText());
-									stringBuffer.append('\n');
-									stringBuffer.append("Distortions: ");
-									stringBuffer.append(distortions);
-									stringBuffer.append('\n');
-									stringBuffer.append("Alt Behavior: " + altbehavior.getText());
-									stringBuffer.append('\n');
-									stringBuffer.append("Alt Thoughts: " + altthoughts.getText());
-									stringBuffer.append('\n');
-									stringBuffer.append('\n');
-
-									// Print the stringBuffer to the file
-									printStream.print(stringBuffer.toString());
-
-									// Close everything out
-									printStream.close();
-									fOut.close();
 									//ClearScreen
 									situation.setText("");
 									thoughts.setText("");
@@ -235,21 +191,14 @@ public class NewLogActivity extends AppCompatActivity
 									behavior.setText("");
 									altbehavior.setText("");
 									altthoughts.setText("");
-									Toast.makeText(getBaseContext(),
-											"Saved to 'mythoughtlog.txt'",
-											Toast.LENGTH_SHORT).show();
-								} catch (Exception e) {
-									e.printStackTrace();
-									Toast.makeText(getBaseContext(), e.getMessage(),
-											Toast.LENGTH_SHORT).show();
-								}
+
 							}
 						})
-						.setNegativeButton("No", null)						//Do nothing on no
+						.setNegativeButton("No", null)	//Do nothing on no
 						.show();
 
 			}//Save onClick
-		});// btnWriteSDFile
+		});
 
 	}
 }// AndSDcard
