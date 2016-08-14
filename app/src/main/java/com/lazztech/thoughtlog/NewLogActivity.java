@@ -166,9 +166,7 @@ public class NewLogActivity extends AppCompatActivity
 
 	public void SaveData() {
 		btnWriteSDFile.setOnClickListener(new OnClickListener() {
-
 			public void onClick(View v) {
-
 				//Put up the Yes/No message box
 				AlertDialog.Builder builder = new AlertDialog.Builder(NewLogActivity.this);
 				builder
@@ -182,23 +180,21 @@ public class NewLogActivity extends AppCompatActivity
 								Intent intent = new Intent(NewLogActivity.this, MainActivity.class);
 								startActivity(intent);
 
-									CurrentDateTime();
+								CurrentDateTime();
 
-									//ClearScreen
-									situation.setText("");
-									thoughts.setText("");
-									emotions.setText("");
-									behavior.setText("");
-									altbehavior.setText("");
-									altthoughts.setText("");
-
+								//ClearScreen
+								situation.setText("");
+								thoughts.setText("");
+								emotions.setText("");
+								behavior.setText("");
+								altbehavior.setText("");
+								altthoughts.setText("");
 							}
 						})
 						.setNegativeButton("No", null)	//Do nothing on no
 						.show();
+			}//Close onClick
+		});//Close setOnClickListener
+	}//Close SaveData()
 
-			}//Save onClick
-		});
-
-	}
-}// AndSDcard
+}//Close NewLogActivity Class
