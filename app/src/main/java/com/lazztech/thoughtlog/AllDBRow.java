@@ -16,6 +16,7 @@ public class AllDBRow extends AppCompatActivity {
         setContentView(R.layout.alldbrow);
         // bind GUI elements with local controls
 
+        String data = getIntent().getExtras().getString("_id");
 
     }
 }
