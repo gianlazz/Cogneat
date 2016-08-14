@@ -64,6 +64,16 @@
                 android:value=".MainActivity">
             </meta-data>
         </activity>
+        <activity
+            android:label="Database Row Info"
+            android:theme="@style/AppTheme"
+            android:name=".AllDBRow"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.Parent_Activity"
+                android:value=".MainActivity">
+            </meta-data>
+        </activity>
     </application>
 
 </manifest>
