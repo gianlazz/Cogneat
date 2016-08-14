@@ -164,6 +164,15 @@ public class NewLogActivity extends AppCompatActivity
 		Date+=" "+currentDateandTime;
 	}
 
+	public void ClearScreen() {
+		situation.setText("");
+		thoughts.setText("");
+		emotions.setText("");
+		behavior.setText("");
+		altbehavior.setText("");
+		altthoughts.setText("");
+	}
+
 	public void SaveData() {
 		btnWriteSDFile.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -183,12 +192,7 @@ public class NewLogActivity extends AppCompatActivity
 								CurrentDateTime();
 
 								//ClearScreen
-								situation.setText("");
-								thoughts.setText("");
-								emotions.setText("");
-								behavior.setText("");
-								altbehavior.setText("");
-								altthoughts.setText("");
+								ClearScreen();
 							}
 						})
 						.setNegativeButton("No", null)	//Do nothing on no
