@@ -2,6 +2,7 @@ package com.lazztech.thoughtlog;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -96,6 +97,8 @@ public class GAD7Activity extends AppCompatActivity implements SeekBar.OnSeekBar
                             public void onClick(DialogInterface dialog, int which) {
                                 // write on SD card file data in the text box
 
+                                Intent intent = new Intent(GAD7Activity.this, MainActivity.class);
+                                startActivity(intent);
 
                                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mma");
                                     String currentDateandTime = sdf.format(new Date());
