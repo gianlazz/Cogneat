@@ -46,17 +46,6 @@ public class LogHistoryActivity extends AppCompatActivity
         showMessage("Error", "Nothing found");
     }
 
-    StringBuffer buffer = new StringBuffer();
-    while (res.moveToNext()){
-        buffer.append("ID :" + res.getString(0)+"\n");
-        buffer.append("Name :" + res.getString(1)+"\n");
-        buffer.append("Surname :" + res.getString(2)+"\n");
-        buffer.append("Marks :" + res.getString(3)+"\n\n");
-    }
-
-    // Show all data
-    showMessage("Data", buffer.toString());
-
 }
 
     private void populateListView(){
