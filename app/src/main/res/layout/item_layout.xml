@@ -10,9 +10,16 @@
         android:id="@+id/textViewItemNumber" />
 
     <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewDatetime" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
-        android:id="@+id/textViewItemSituation" />
+        android:id="@+id/textViewItemSituation"
+        android:maxLines="1" />
 
 </LinearLayout>
