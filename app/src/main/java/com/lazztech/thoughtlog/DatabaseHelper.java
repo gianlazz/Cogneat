@@ -13,13 +13,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Student.db";
     public static final String TABLE_NAME = "student_table";
     public static final String COL_1 = "_id";
-    public static final String COL_2 = "SITUATION";
-    public static final String COL_3 = "THOUGHTS";
-    public static final String COL_4 = "EMOTIONS";
-    public static final String COL_5 = "BEHAVIOR";
-    public static final String COL_6 = "DISTORTIONS";
-    public static final String COL_7 = "ALTBEHAVIOR";
-    public static final String COL_8 = "ALTTHOUGHTS";
+    public static final String COL_2 = "DATETIME";
+    public static final String COL_3 = "SITUATION";
+    public static final String COL_4 = "THOUGHTS";
+    public static final String COL_5 = "EMOTIONS";
+    public static final String COL_6 = "BEHAVIOR";
+    public static final String COL_7 = "DISTORTIONS";
+    public static final String COL_8 = "ALTBEHAVIOR";
+    public static final String COL_9 = "ALTTHOUGHTS";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -28,7 +29,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + TABLE_NAME + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, SITUATION TEXT, THOUGHTS TEXT, EMOTIONS TEXT, BEHAVIOR TEXT, DISTORTIONS TEXT, ALTBEHAVIOR TEXT, ALTTHOUGHTS TEXT) ");
+        db.execSQL("create table " + TABLE_NAME + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, DATETIME TEXT, SITUATION TEXT, THOUGHTS TEXT, EMOTIONS TEXT, BEHAVIOR TEXT, DISTORTIONS TEXT, ALTBEHAVIOR TEXT, ALTTHOUGHTS TEXT) ");
 
     }
 
@@ -39,16 +40,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertData(String situation,String thoughts,String emotions, String behavior, String distortions, String altbehavior, String altthoughts){
+    public boolean insertData(String datetime, String situation,String thoughts,String emotions, String behavior, String distortions, String altbehavior, String altthoughts){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_2,situation);
-        contentValues.put(COL_3,thoughts);
-        contentValues.put(COL_4,emotions);
-        contentValues.put(COL_5,behavior);
-        contentValues.put(COL_6,distortions);
-        contentValues.put(COL_7,altbehavior);
-        contentValues.put(COL_8,altthoughts);
+        contentValues.put(COL_2,datetime);
+        contentValues.put(COL_3,situation);
+        contentValues.put(COL_4,thoughts);
+        contentValues.put(COL_5,emotions);
+        contentValues.put(COL_6,behavior);
+        contentValues.put(COL_7,distortions);
+        contentValues.put(COL_8,altbehavior);
+        contentValues.put(COL_9,altthoughts);
         long result = db.insert(TABLE_NAME, null, contentValues);
         if(result == -1)
             return false;
