@@ -50,8 +50,8 @@ public class LogHistoryActivity extends AppCompatActivity
 
     private void populateListView(){
         Cursor cursor = myDb.getAllData();
-        String[] fromFieldNames = new String[] {DatabaseHelper.COL_1,DatabaseHelper.COL_2};
-        int[] toViewIDs = new int[] {R.id.textViewItemNumber, R.id.textViewItemSituation,};
+        String[] fromFieldNames = new String[] {DatabaseHelper.COL_1,DatabaseHelper.COL_2, DatabaseHelper.COL_3};
+        int[] toViewIDs = new int[] {R.id.textViewItemNumber,R.id.textViewDatetime, R.id.textViewItemSituation,};
         SimpleCursorAdapter myCursorAdapter;
         myCursorAdapter = new SimpleCursorAdapter(getBaseContext(),R.layout.item_layout, cursor, fromFieldNames, toViewIDs, 0);
         ListView myList = (ListView) findViewById(R.id.listViewTasks);
