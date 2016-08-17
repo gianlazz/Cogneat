@@ -145,7 +145,10 @@ public class NewLogActivity extends AppCompatActivity
 	}
 
 	public void AddData() {
-		boolean isInserted = myDb.insertData(situation.getText().toString(),
+		CurrentDateTime();
+		boolean isInserted = myDb.insertData(
+				Date.toString(),
+				situation.getText().toString(),
 				thoughts.getText().toString(),
 				emotions.getText().toString(),
 				behavior.getText().toString(),
@@ -185,7 +188,6 @@ public class NewLogActivity extends AppCompatActivity
 								AddData();
 								Intent intent = new Intent(NewLogActivity.this, MainActivity.class);
 								startActivity(intent);
-								CurrentDateTime();
 
 								//ClearScreen
 								ClearScreen();
