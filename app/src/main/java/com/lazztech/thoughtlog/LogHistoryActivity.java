@@ -72,16 +72,18 @@ public class LogHistoryActivity extends AppCompatActivity
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Cursor cursor = (Cursor) dblist.getItemAtPosition(position);
                 String getid = cursor.getString(0);
-                String getsituation = cursor.getString(1);
-                String getthoughts = cursor.getString(2);
-                String getemotions = cursor.getString(3);
-                String getbehaviors = cursor.getString(4);
-                String getdistortions = cursor.getString(5);
-                String getaltbehaviors = cursor.getString(6);
-                String getaltthoughts = cursor.getString(7);
+                String getdatetime = cursor.getString(1);
+                String getsituation = cursor.getString(2);
+                String getthoughts = cursor.getString(3);
+                String getemotions = cursor.getString(4);
+                String getbehaviors = cursor.getString(5);
+                String getdistortions = cursor.getString(6);
+                String getaltbehaviors = cursor.getString(7);
+                String getaltthoughts = cursor.getString(8);
 
                 Intent intent = new Intent(LogHistoryActivity.this, AllDBRow.class);
                 intent.putExtra("id", getid);
+                intent.putExtra("datetime", getdatetime);
                 intent.putExtra("situation", getsituation);
                 intent.putExtra("thoughts", getthoughts);
                 intent.putExtra("emotions", getemotions);

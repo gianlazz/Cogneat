@@ -18,6 +18,17 @@
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/datetimeTextView" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#c0c0c0"/>
+
+    <EditText
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/situationTextView" />
 
     <View
@@ -25,7 +36,7 @@
         android:layout_height="2dp"
         android:background="#c0c0c0"/>
 
-    <TextView
+    <EditText
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,7 +47,7 @@
         android:layout_height="2dp"
         android:background="#c0c0c0"/>
 
-    <TextView
+    <EditText
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,7 +58,7 @@
         android:layout_height="2dp"
         android:background="#c0c0c0"/>
 
-    <TextView
+    <EditText
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,7 +69,7 @@
         android:layout_height="2dp"
         android:background="#c0c0c0"/>
 
-    <TextView
+    <EditText
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,7 +80,7 @@
         android:layout_height="2dp"
         android:background="#c0c0c0"/>
 
-    <TextView
+    <EditText
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -80,10 +91,22 @@
         android:layout_height="2dp"
         android:background="#c0c0c0"/>
 
-    <TextView
+    <EditText
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/altthoughsTextView" />
+
+    <Button
+        android:text="Delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/deleteButton" />
+
+    <Button
+        android:text="update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/updateButton" />
 
 </LinearLayout>
