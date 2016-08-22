@@ -1,5 +1,8 @@
 package com.lazztech.thoughtlog;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -84,6 +87,24 @@ public class AllDBRow extends AppCompatActivity {
                             Toast.makeText(AllDBRow.this, "Data Not Deleted!", Toast.LENGTH_LONG).show();
                     }
 
+    public void AreYouSureDelete(){
+        //Put up the Yes/No message box
+        AlertDialog.Builder builder = new AlertDialog.Builder(AllDBRow.this);
+        builder
+                .setTitle("Warning!")
+                .setMessage("Are you sure you want to delete?")
+                //.setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        DeleteData();
+                        Intent intent = new Intent(AllDBRow.this, LogHistoryActivity.class);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("No", null)	//Do nothing on no
+                .show();
+    }
+
     public void UpdateDate(){
         updatebtn.setOnClickListener(
                 new View.OnClickListener() {
@@ -120,7 +141,7 @@ public class AllDBRow extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menuDelete:
-                DeleteData();
+                AreYouSureDelete();
                 return true;
 
         }
