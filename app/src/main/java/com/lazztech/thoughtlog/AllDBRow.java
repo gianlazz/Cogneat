@@ -2,6 +2,9 @@ package com.lazztech.thoughtlog;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +29,7 @@ public class AllDBRow extends AppCompatActivity {
     EditText altbehavior;
     EditText altthoughts;
     Button updatebtn;
+    Button deletebtn;
 
     DatabaseHelper myDb;
 
@@ -57,6 +61,7 @@ public class AllDBRow extends AppCompatActivity {
         altbehavior = (EditText) findViewById(R.id.altbehaviorTextView);
         altthoughts = (EditText) findViewById(R.id.altthoughsTextView);
         updatebtn = (Button) findViewById(R.id.updateButton);
+        deletebtn = (Button) findViewById(R.id.deleteButton);
 
         id.setText(iddata);
         datetime.setText(datetimedata);
@@ -70,6 +75,14 @@ public class AllDBRow extends AppCompatActivity {
 
         UpdateDate();
     }
+
+    public void DeleteData(){
+                        Integer deletedRows = myDb.deleteData(id.getText().toString());
+                        if(deletedRows > 0)
+                            Toast.makeText(AllDBRow.this, "Data Deleted", Toast.LENGTH_LONG).show();
+                        else
+                            Toast.makeText(AllDBRow.this, "Data Not Deleted!", Toast.LENGTH_LONG).show();
+                    }
 
     public void UpdateDate(){
         updatebtn.setOnClickListener(
@@ -92,5 +105,25 @@ public class AllDBRow extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        // Inflate main_menu.xml
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.alldbrow_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menuDelete:
+                DeleteData();
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
