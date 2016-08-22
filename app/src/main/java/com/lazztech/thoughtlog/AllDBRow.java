@@ -32,7 +32,6 @@ public class AllDBRow extends AppCompatActivity {
     EditText altbehavior;
     EditText altthoughts;
     Button updatebtn;
-    Button deletebtn;
 
     DatabaseHelper myDb;
 
@@ -64,7 +63,6 @@ public class AllDBRow extends AppCompatActivity {
         altbehavior = (EditText) findViewById(R.id.altbehaviorTextView);
         altthoughts = (EditText) findViewById(R.id.altthoughsTextView);
         updatebtn = (Button) findViewById(R.id.updateButton);
-        deletebtn = (Button) findViewById(R.id.deleteButton);
 
         id.setText(iddata);
         datetime.setText(datetimedata);
@@ -76,7 +74,7 @@ public class AllDBRow extends AppCompatActivity {
         altbehavior.setText(altbehaviordata);
         altthoughts.setText(altthoughtsdata);
 
-        UpdateDate();
+        UpdateData();
     }
 
     public void DeleteData(){
@@ -105,7 +103,7 @@ public class AllDBRow extends AppCompatActivity {
                 .show();
     }
 
-    public void UpdateDate(){
+    public void UpdateData(){
         updatebtn.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
