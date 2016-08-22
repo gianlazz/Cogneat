@@ -36,8 +36,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/situationTextView"
         android:ems="10"
-        android:hint="Situation:"
-        android:editable="false" />
+        android:hint="Situation:" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -82,12 +81,20 @@
         android:hint="Behavior:"/>
     </android.support.design.widget.TextInputLayout>
 
-
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/distortionsWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.AppCompat.Light">
     <EditText
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/distortionsTextView" />
+        android:id="@+id/distortionsTextView"
+        android:editable="false"
+        android:ems="10"
+        android:hint="Distortions"/>
+    </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/altbehaviorsWrapper"
