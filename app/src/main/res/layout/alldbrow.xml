@@ -3,6 +3,15 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
     <TextView
         android:text="TextView"
         android:layout_width="match_parent"
@@ -129,5 +138,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/updateButton" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
