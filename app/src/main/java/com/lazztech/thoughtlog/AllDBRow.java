@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.KeyListener;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,9 +32,10 @@ public class AllDBRow extends AppCompatActivity {
     EditText distortions;
     EditText altbehavior;
     EditText altthoughts;
-    Button updatebtn;
 
     DatabaseHelper myDb;
+
+    private KeyListener listener;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -62,7 +64,10 @@ public class AllDBRow extends AppCompatActivity {
         distortions = (EditText) findViewById(R.id.distortionsTextView);
         altbehavior = (EditText) findViewById(R.id.altbehaviorTextView);
         altthoughts = (EditText) findViewById(R.id.altthoughsTextView);
-        updatebtn = (Button) findViewById(R.id.updateButton);
+
+        listener = situation.getKeyListener();
+        listener = thoughts.getKeyListener();
+        listener = emotions.getKeyListener();
 
         id.setText(iddata);
         datetime.setText(datetimedata);
@@ -74,7 +79,26 @@ public class AllDBRow extends AppCompatActivity {
         altbehavior.setText(altbehaviordata);
         altthoughts.setText(altthoughtsdata);
 
-        UpdateData();
+        NotEditable();
+    }
+
+    public void Editable(){
+        situation.setKeyListener(listener);
+        thoughts.setKeyListener(listener);
+        emotions.setKeyListener(listener);
+        behavior.setKeyListener(listener);
+        altbehavior.setKeyListener(listener);
+        altthoughts.setKeyListener(listener);
+    }
+
+    public void NotEditable(){
+        situation.setKeyListener(null);
+        thoughts.setKeyListener(null);
+        emotions.setKeyListener(null);
+        behavior.setKeyListener(null);
+        distortions.setKeyListener(null);
+        altbehavior.setKeyListener(null);
+        altthoughts.setKeyListener(null);
     }
 
     public void DeleteData(){
@@ -90,7 +114,7 @@ public class AllDBRow extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(AllDBRow.this);
         builder
                 .setTitle("Warning!")
-                .setMessage("Are you sure you want to delete?")
+                .setMessage("Are you sure you want to save your changes?")
                 //.setIcon(android.R.drawable.ic_dialog_alert)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -103,11 +127,24 @@ public class AllDBRow extends AppCompatActivity {
                 .show();
     }
 
+    public void AreYouSureUpdate(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(AllDBRow.this);
+        builder
+                .setTitle("Warning!")
+                .setMessage("Are you sure you want to save your changes?")
+                //.setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        UpdateData();
+                        Intent intent = new Intent(AllDBRow.this, LogHistoryActivity.class);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("No", null)	//Do nothing on no
+                .show();
+    }
+
     public void UpdateData(){
-        updatebtn.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
                         boolean isUpdated = myDb.updateData(id.getText().toString(),
                                 datetime.getText().toString(),
                                 situation.getText().toString(),
@@ -121,9 +158,6 @@ public class AllDBRow extends AppCompatActivity {
                             Toast.makeText(AllDBRow.this, "Data Updated", Toast.LENGTH_LONG).show();
                         else
                             Toast.makeText(AllDBRow.this, "Data Not Updated!", Toast.LENGTH_LONG).show();
-                    }
-                }
-        );
     }
 
     @Override
@@ -140,6 +174,13 @@ public class AllDBRow extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.menuDelete:
                 AreYouSureDelete();
+                return true;
+            case R.id.menuEdit:
+                Editable();
+                Toast.makeText(AllDBRow.this, "Don't forget to save your changes!", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.menuSave:
+                AreYouSureUpdate();
                 return true;
 
         }

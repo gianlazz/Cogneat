@@ -133,12 +133,6 @@
         android:hint="Alt Thoughts:"/>
     </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:text="update"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/updateButton" />
-
         </LinearLayout>
     </ScrollView>
 

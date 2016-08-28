@@ -3,5 +3,11 @@
 	<item
         android:title="Delete"
 		android:id="@+id/menuDelete"/>
+	<item
+		android:title="Edit"
+		android:id="@+id/menuEdit"/>
+	<item
+		android:title="Save"
+		android:id="@+id/menuSave"/>
 
 </menu>
