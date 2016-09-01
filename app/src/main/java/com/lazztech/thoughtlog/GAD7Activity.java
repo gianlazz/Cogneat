@@ -53,12 +53,16 @@ public class GAD7Activity extends AppCompatActivity implements SeekBar.OnSeekBar
     TextView diagnosis;
     Button SaveScore;
 
+    DatabaseHelper myDb;
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Set MainActivity.xml as user interface layout
         setContentView(R.layout.gad7);
+
+        myDb = new DatabaseHelper(this);
+
         // bind GUI elements with local controls
         seekBar1 = (SeekBar)findViewById(R.id.seekBar1);
         seekBar2 = (SeekBar)findViewById(R.id.seekBar2);
@@ -83,41 +87,7 @@ public class GAD7Activity extends AppCompatActivity implements SeekBar.OnSeekBar
         diagnosis = (TextView)findViewById(R.id.diagnosis);
         SaveScore = (Button)findViewById(R.id.SaveDepressionScore);
 
-        View.OnClickListener saveListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //Put up the Yes/No message box
-                AlertDialog.Builder builder = new AlertDialog.Builder(GAD7Activity.this);
-                builder
-                        .setTitle("Are you sure you're finished?")
-                        .setMessage("Touch \"YES\" to save.")
-                                //.setIcon(android.R.drawable.ic_dialog_alert)
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                // write on SD card file data in the text box
-
-                                Intent intent = new Intent(GAD7Activity.this, MainActivity.class);
-                                startActivity(intent);
-
-                                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mma");
-                                    String currentDateandTime = sdf.format(new Date());
-                                    Date += " " + currentDateandTime;
-
-
-
-                            }
-                        })
-                        .setNegativeButton("No", null)                        //Do nothing on no
-                        .show();
-
-                //Close onClick
-            }
-            // End OnClickListener
-        };
-
-        //setOnClickListener(saveListener) to button variable connected to R.id.SaveDepressionScore in layout xml
-        SaveScore.setOnClickListener(saveListener);
+        SaveData();
 
         //Close onCreate
     }
@@ -159,5 +129,47 @@ public class GAD7Activity extends AppCompatActivity implements SeekBar.OnSeekBar
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
         // TODO Auto-generated method stub
+    }
+
+    public void CurrentDateTime() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mma");
+        String currentDateandTime = sdf.format(new Date());
+        Date+=" "+currentDateandTime;
+    }
+
+    public void AddData() {
+        CurrentDateTime();
+        boolean isInserted = myDb.insertGAD7Data(
+                Date.toString(),
+                String.valueOf(totalScoreInt));
+        if(isInserted =true)
+            Toast.makeText(GAD7Activity.this, "Data Inserted", Toast.LENGTH_LONG).show();
+    }
+
+    public void SaveData(){
+        //setOnClickListener(saveListener) to button variable connected to R.id.SaveDepressionScore in layout xml
+        SaveScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Put up the Yes/No message box
+                AlertDialog.Builder builder = new AlertDialog.Builder(GAD7Activity.this);
+                builder
+                        .setTitle("Are you sure you're finished?")
+                        .setMessage("Touch \"YES\" to save.")
+                        //.setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // write on SD card file data in the text box
+                                AddData();
+                                Intent intent = new Intent(GAD7Activity.this, MainActivity.class);
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton("No", null)                        //Do nothing on no
+                        .show();
+                //Close onClick
+            }
+            // End OnClickListener
+        });
     }
 }
