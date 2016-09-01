@@ -1,22 +1,19 @@
 package com.lazztech.thoughtlog;
 
 import android.app.*;
-import android.os.*;
 import android.view.*;
 import android.widget.*;
-import java.io.*;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import android.support.design.widget.TextInputLayout;
+
 import android.support.v7.app.AppCompatActivity;
 
 import android.content.*;
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View.OnClickListener;
-import android.widget.SearchView.*;
 
 public class NewLogActivity extends AppCompatActivity
 {
@@ -146,7 +143,7 @@ public class NewLogActivity extends AppCompatActivity
 
 	public void AddData() {
 		CurrentDateTime();
-		boolean isInserted = myDb.insertData(
+		boolean isInserted = myDb.insertThoughtLogData(
 				Date.toString(),
 				situation.getText().toString(),
 				thoughts.getText().toString(),
