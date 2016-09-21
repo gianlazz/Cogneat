@@ -296,7 +296,7 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
             seekBar8result.setText(One);
         }
         if (seekBar8.getProgress() == 2){
-            seekBar4result.setText(Two);
+            seekBar8result.setText(Two);
         }
         if (seekBar8.getProgress() == 3){
             seekBar8result.setText(Three);
