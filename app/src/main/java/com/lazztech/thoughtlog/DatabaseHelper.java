@@ -41,6 +41,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + TABLE_NAME + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, DATETIME TEXT, SITUATION TEXT, THOUGHTS TEXT, EMOTIONS TEXT, BEHAVIOR TEXT, DISTORTIONS TEXT, ALTBEHAVIOR TEXT, ALTTHOUGHTS TEXT) ");
         db.execSQL("create table " + TABLE_GAD7 + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, DATETIME TEXT, SCORE TEXT");
+        db.execSQL("CREATE TABLE " + TABLE_PHQ9 + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, DATETIME TEXT, SCORE TEXT");
     }
 
     @Override
@@ -80,9 +81,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
+    public boolean insertPHQ9Data(String datetime, String score){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(PHQ9_COL_2, datetime);
+        contentValues.put(PHQ9_COL_3, score);
+        long result = db.insert(TABLE_PHQ9, null, contentValues);
+        if(result == -1)
+            return false;
+        else
+            return true;
+    }
+
     public Cursor getAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from " +TABLE_NAME, null);
+        Cursor res = db.rawQuery("select * from " +TABLE_NAME+ ", "+TABLE_GAD7, null);
         return res;
     }
 
