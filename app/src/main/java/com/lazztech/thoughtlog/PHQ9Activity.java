@@ -2,6 +2,7 @@ package com.lazztech.thoughtlog;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -68,12 +69,17 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
     TextView diagnosis;
     Button SaveScore;
 
+    DatabaseHelper myDb;
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Set MainActivity.xml as user interface layout
         setContentView(R.layout.phq9);
+
+        myDb = new DatabaseHelper(this);
+
         // bind GUI elements with local controls
         seekBar1 = (SeekBar)findViewById(R.id.seekBar1);
         seekBar1value = (TextView)findViewById(R.id.seekbar1_value);
@@ -120,81 +126,10 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
         diagnosis = (TextView)findViewById(R.id.diagnosis);
         SaveScore = (Button)findViewById(R.id.SaveDepressionScore);
 
-        View.OnClickListener saveListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //Put up the Yes/No message box
-                AlertDialog.Builder builder = new AlertDialog.Builder(PHQ9Activity.this);
-                builder
-                        .setTitle("Are you sure you're finished?")
-                        .setMessage("Touch \"YES\" to save.")
-                                //.setIcon(android.R.drawable.ic_dialog_alert)
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                // write on SD card file data in the text box
-                                try {
-                                    File directory = Environment.getExternalStorageDirectory();
-                                    File myFile = new File(directory, "mythoughtlog.txt");
-
-                                    // Check if the file already exists so you don't keep creating
-                                    if (!myFile.exists()) {
-                                        //Log.i(TAG, "Creating the file as it doesn't exist already");
-                                        myFile.createNewFile();
-                                    }
-
-                                    // Open the FileoutputStream
-                                    FileOutputStream fOut = new FileOutputStream(myFile, true);
-
-                                    // Open the printStream to allow for Strings to be written
-                                    PrintStream printStream = new PrintStream(fOut);
-
-                                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mma");
-                                    String currentDateandTime = sdf.format(new Date());
-                                    Date += " " + currentDateandTime;
+        SaveData();
 
 
-                                    // Using a stringBuffer to append all the values to
-                                    StringBuffer stringBuffer = new StringBuffer();
-                                    stringBuffer.append(Date);
-                                    stringBuffer.append('\n');
-                                    stringBuffer.append(String.valueOf("PHQ-9 Score: " +totalScoreInt));
-                                    stringBuffer.append('\n');
-                                    stringBuffer.append(diagnosis.getText());
-                                    stringBuffer.append('\n');
-                                    stringBuffer.append("Situation: " + situation.getText());
-                                    stringBuffer.append('\n');
-                                    stringBuffer.append('\n');
-
-
-                                    // Print the stringBuffer to the file
-                                    printStream.print(stringBuffer.toString());
-
-                                    // Close everything out
-                                    printStream.close();
-                                    fOut.close();
-                                    Toast.makeText(getBaseContext(),
-                                            "Saved to 'mythoughtlog.txt'",
-                                            Toast.LENGTH_SHORT).show();
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                    Toast.makeText(getBaseContext(), e.getMessage(),
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        })
-                        .setNegativeButton("No", null)                        //Do nothing on no
-                        .show();
-
-            //Close onClick
-            }
-        // End OnClickListener
-        };
-        
-        //setOnClickListener(saveListener) to button variable connected to R.id.SaveDepressionScore in layout xml
-        SaveScore.setOnClickListener(saveListener);
-
-    //Close onCreate
+        //Close onCreate
     }
 
     public void questionScore(){
@@ -363,6 +298,48 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
         }
     }
 
+    public void CurrentDateTime() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mma");
+        String currentDateandTime = sdf.format(new Date());
+        Date+=" "+currentDateandTime;
+    }
+
+    public void AddData() {
+        CurrentDateTime();
+        boolean isInserted = myDb.insertPHQ9Data(
+                Date.toString(),
+                String.valueOf(totalScoreInt));
+        if(isInserted =true)
+            Toast.makeText(PHQ9Activity.this, "Data Inserted", Toast.LENGTH_LONG).show();
+    }
+
+    public void SaveData(){
+        //setOnClickListener(saveListener) to button variable connected to R.id.SaveDepressionScore in layout xml
+        SaveScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Put up the Yes/No message box
+                AlertDialog.Builder builder = new AlertDialog.Builder(PHQ9Activity.this);
+                builder
+                        .setTitle("Are you sure you're finished?")
+                        .setMessage("Touch \"YES\" to save.")
+                        //.setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // write on SD card file data in the text box
+                                AddData();
+                                Intent intent = new Intent(PHQ9Activity.this, MainActivity.class);
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton("No", null)                        //Do nothing on no
+                        .show();
+                //Close onClick
+            }
+            // End OnClickListener
+        });
+    }
+
 
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
@@ -372,4 +349,6 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
     public void onStopTrackingTouch(SeekBar seekBar) {
         // TODO Auto-generated method stub
     }
+
+
 }
