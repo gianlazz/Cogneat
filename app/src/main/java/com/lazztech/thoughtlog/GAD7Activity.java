@@ -266,7 +266,8 @@ public class GAD7Activity extends AppCompatActivity implements SeekBar.OnSeekBar
         CurrentDateTime();
         boolean isInserted = myDb.insertGAD7Data(
                 Date.toString(),
-                String.valueOf(totalScoreInt));
+                String.valueOf(totalScoreInt),
+                String.valueOf(diagnosis.getText()));
         if(isInserted =true)
             Toast.makeText(GAD7Activity.this, "Data Inserted", Toast.LENGTH_LONG).show();
     }

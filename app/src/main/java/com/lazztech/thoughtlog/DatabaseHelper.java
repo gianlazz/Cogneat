@@ -26,11 +26,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String GAD7_COL_1 = "_id";
     public static final String GAD7_COL_2 = "DATETIME";
     public static final String GAD7_COL_3 = "SCORE";
+    public static final String GAD7_COL_4 = "DIAGNOSIS";
 
     public static final String TABLE_PHQ9 = "phq9_table";
     public static final String PHQ9_COL_1 = "_id";
     public static final String PHQ9_COL_2 = "DATETIME";
     public static final String PHQ9_COL_3 = "SCORE";
+    public static final String PHQ9_COL_4 = "DIAGNOSIS";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -40,8 +42,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + TABLE_NAME + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, DATETIME TEXT, SITUATION TEXT, THOUGHTS TEXT, EMOTIONS TEXT, BEHAVIOR TEXT, DISTORTIONS TEXT, ALTBEHAVIOR TEXT, ALTTHOUGHTS TEXT) ");
-        db.execSQL("create table " + TABLE_GAD7 + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, DATETIME TEXT, SCORE TEXT) ");
-        db.execSQL("create table " + TABLE_PHQ9 + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, DATETIME TEXT, SCORE TEXT) ");
+        db.execSQL("create table " + TABLE_GAD7 + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, DATETIME TEXT, SCORE TEXT, DIAGNOSIS TEXT) ");
+        db.execSQL("create table " + TABLE_PHQ9 + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, DATETIME TEXT, SCORE TEXT, DIAGNOSIS TEXT) ");
     }
 
     @Override
@@ -71,11 +73,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    public boolean insertGAD7Data(String datetime, String score){
+    public boolean insertGAD7Data(String datetime, String score, String diagnosis){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(GAD7_COL_2, datetime);
         contentValues.put(GAD7_COL_3, score);
+        contentValues.put(GAD7_COL_4, diagnosis);
         long result = db.insert(TABLE_GAD7, null, contentValues);
         if(result == -1)
             return false;
@@ -83,11 +86,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    public boolean insertPHQ9Data(String datetime, String score){
+    public boolean insertPHQ9Data(String datetime, String score, String diagnosis){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(PHQ9_COL_2, datetime);
         contentValues.put(PHQ9_COL_3, score);
+        contentValues.put(PHQ9_COL_4, diagnosis);
         long result = db.insert(TABLE_PHQ9, null, contentValues);
         if(result == -1)
             return false;

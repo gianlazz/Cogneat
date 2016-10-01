@@ -117,7 +117,7 @@ public class LogHistoryActivity extends AppCompatActivity
 
     private void populateListViewGAD7(){
         Cursor cursor = myDb.getAllGAD7Data();
-        String[] fromFieldNames = new String[] {DatabaseHelper.GAD7_COL_1,DatabaseHelper.GAD7_COL_2, DatabaseHelper.GAD7_COL_3};
+        String[] fromFieldNames = new String[] {DatabaseHelper.GAD7_COL_2,DatabaseHelper.GAD7_COL_3, DatabaseHelper.GAD7_COL_4};
         int[] toViewIDs = new int[] {R.id.textViewItemNumber,R.id.textViewDatetime, R.id.textViewItemSituation,};
         SimpleCursorAdapter myCursorAdapter;
         myCursorAdapter = new SimpleCursorAdapter(getBaseContext(),R.layout.item_layout, cursor, fromFieldNames, toViewIDs, 0);
@@ -127,7 +127,7 @@ public class LogHistoryActivity extends AppCompatActivity
 
     private void populateListViewPHQ9(){
         Cursor cursor = myDb.getAllPHQ9Data();
-        String[] fromFieldNames = new String[] {DatabaseHelper.PHQ9_COL_1,DatabaseHelper.PHQ9_COL_2, DatabaseHelper.PHQ9_COL_3};
+        String[] fromFieldNames = new String[] {DatabaseHelper.PHQ9_COL_2,DatabaseHelper.PHQ9_COL_3, DatabaseHelper.PHQ9_COL_4};
         int[] toViewIDs = new int[] {R.id.textViewItemNumber,R.id.textViewDatetime, R.id.textViewItemSituation,};
         SimpleCursorAdapter myCursorAdapter;
         myCursorAdapter = new SimpleCursorAdapter(getBaseContext(),R.layout.item_layout, cursor, fromFieldNames, toViewIDs, 0);

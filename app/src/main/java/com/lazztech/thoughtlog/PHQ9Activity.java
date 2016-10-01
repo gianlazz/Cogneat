@@ -308,7 +308,8 @@ public class PHQ9Activity extends AppCompatActivity implements OnSeekBarChangeLi
         CurrentDateTime();
         boolean isInserted = myDb.insertPHQ9Data(
                 Date.toString(),
-                String.valueOf(totalScoreInt));
+                String.valueOf(totalScoreInt),
+                String.valueOf(diagnosis.getText()));
         if(isInserted =true)
             Toast.makeText(PHQ9Activity.this, "Data Inserted", Toast.LENGTH_LONG).show();
     }
