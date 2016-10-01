@@ -35,14 +35,14 @@ public class LogHistoryActivity extends AppCompatActivity
 
         myDb = new DatabaseHelper(this);
 
-        viewAll();
-
+        viewAllThoughtLog();
         populateListViewThoughtLog();
+        thoughtLogListViewItemClick();
+
         anxietyButton();
-        listViewItemClick();
     }
 
-    public void viewAll() {
+    public void viewAllThoughtLog() {
     Cursor res= myDb.getAllThoughtLogData();
     if (res.getCount() == 0) {
         //Show no data message
@@ -88,7 +88,7 @@ public class LogHistoryActivity extends AppCompatActivity
         builder.show();
     }
 
-    public void listViewItemClick(){
+    public void thoughtLogListViewItemClick(){
         dblist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
