@@ -47,8 +47,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        db.execSQL("DROP TABLE IF EXIST " + TABLE_NAME);
-        onCreate(db);
+        if (oldVersion < 2) {
+         //   db.execSQL("DROP TABLE IF EXIST " + TABLE_GAD7);
+         //   onCreate(db);
+        }
     }
 
     public boolean insertThoughtLogData(String datetime, String situation, String thoughts, String emotions, String behavior, String distortions, String altbehavior, String altthoughts){
