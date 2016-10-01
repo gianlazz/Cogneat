@@ -6,23 +6,37 @@
     android:gravity="top|center"
     android:orientation="vertical">
 
-    <Button
-        android:text="Thought Log"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/Thought_Log_button" />
+        android:orientation="horizontal"
+        android:padding="4dp">
 
-    <Button
-        android:text="Anxiety"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/GAD7_button" />
+        <Button
+            android:text="Thought Log"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Thought_Log_button"
+            android:layout_weight="1"
+            android:elevation="10dp"
+            />
 
-    <Button
-        android:text="Depression"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/PHQ_button" />
+        <Button
+            android:text="Anxiety"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/GAD7_button"
+            android:layout_weight="1"
+            android:elevation="10dp"/>
+
+        <Button
+            android:text="Depression"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/PHQ_button"
+            android:layout_weight="1"
+            android:elevation="10dp"/>
+    </LinearLayout>
 
     <ListView
         android:layout_width="match_parent"
