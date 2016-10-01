@@ -40,8 +40,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + TABLE_NAME + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, DATETIME TEXT, SITUATION TEXT, THOUGHTS TEXT, EMOTIONS TEXT, BEHAVIOR TEXT, DISTORTIONS TEXT, ALTBEHAVIOR TEXT, ALTTHOUGHTS TEXT) ");
-        db.execSQL("create table " + TABLE_GAD7 + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, DATETIME TEXT, SCORE TEXT");
-        db.execSQL("CREATE TABLE " + TABLE_PHQ9 + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, DATETIME TEXT, SCORE TEXT");
+        db.execSQL("create table " + TABLE_GAD7 + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, DATETIME TEXT, SCORE TEXT) ");
+        db.execSQL("create table " + TABLE_PHQ9 + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, DATETIME TEXT, SCORE TEXT) ");
     }
 
     @Override
