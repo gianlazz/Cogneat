@@ -110,7 +110,7 @@ public class LogHistoryActivity extends AppCompatActivity
             public void onClick(View v) {
                 viewAllPHQ9Data();
                 populateListViewPHQ9();
-                anxietyListViewItemClick();
+                depressionListViewItemClick();
             }
         });
     }
@@ -177,16 +177,14 @@ public class LogHistoryActivity extends AppCompatActivity
         dblist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Cursor cursor = (Cursor) dblist.getItemAtPosition(position);
-                String getid = cursor.getString(0);
-                String getdatetime = cursor.getString(1);
-                String getsituation = cursor.getString(2);
+            }
+        });
+    }
 
-                Intent intent = new Intent(LogHistoryActivity.this, AllDBRow.class);
-                intent.putExtra("id", getid);
-                intent.putExtra("datetime", getdatetime);
-                intent.putExtra("situation", getsituation);
-                startActivity(intent);
+    public void depressionListViewItemClick(){
+        dblist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             }
         });
     }
