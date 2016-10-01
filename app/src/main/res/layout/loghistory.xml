@@ -7,10 +7,22 @@
     android:orientation="vertical">
 
     <Button
+        android:text="Thought Log"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Thought_Log_button" />
+
+    <Button
         android:text="Anxiety"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/GAD7_button" />
+
+    <Button
+        android:text="Depression"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/PHQ_button" />
 
     <ListView
         android:layout_width="match_parent"
