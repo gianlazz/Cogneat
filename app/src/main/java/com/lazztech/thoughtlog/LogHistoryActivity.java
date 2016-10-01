@@ -16,6 +16,7 @@ public class LogHistoryActivity extends AppCompatActivity
     TextView thoughtLogView;
     String line;
     ListView dblist;
+    Button GAD7button;
 
 
     DatabaseHelper myDb;
@@ -29,6 +30,7 @@ public class LogHistoryActivity extends AppCompatActivity
         setContentView(R.layout.loghistory);
         // bind GUI elements with local controls
 
+        GAD7button = (Button) findViewById(R.id.GAD7_button);
         dblist = (ListView) findViewById(R.id.listViewTasks);
 
         myDb = new DatabaseHelper(this);
@@ -36,6 +38,7 @@ public class LogHistoryActivity extends AppCompatActivity
         viewAll();
 
         populateListViewThoughtLog();
+        anxietyButton();
         listViewItemClick();
     }
 
@@ -51,6 +54,25 @@ public class LogHistoryActivity extends AppCompatActivity
     private void populateListViewThoughtLog(){
         Cursor cursor = myDb.getAllThoughtLogData();
         String[] fromFieldNames = new String[] {DatabaseHelper.COL_1,DatabaseHelper.COL_2, DatabaseHelper.COL_3};
+        int[] toViewIDs = new int[] {R.id.textViewItemNumber,R.id.textViewDatetime, R.id.textViewItemSituation,};
+        SimpleCursorAdapter myCursorAdapter;
+        myCursorAdapter = new SimpleCursorAdapter(getBaseContext(),R.layout.item_layout, cursor, fromFieldNames, toViewIDs, 0);
+        ListView myList = (ListView) findViewById(R.id.listViewTasks);
+        myList.setAdapter(myCursorAdapter);
+    }
+
+    public void anxietyButton(){
+        GAD7button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                populateListViewGAD7();
+            }
+        });
+    }
+
+    private void populateListViewGAD7(){
+        Cursor cursor = myDb.getAllGAD7Data();
+        String[] fromFieldNames = new String[] {DatabaseHelper.GAD7_COL_1,DatabaseHelper.GAD7_COL_2, DatabaseHelper.GAD7_COL_3};
         int[] toViewIDs = new int[] {R.id.textViewItemNumber,R.id.textViewDatetime, R.id.textViewItemSituation,};
         SimpleCursorAdapter myCursorAdapter;
         myCursorAdapter = new SimpleCursorAdapter(getBaseContext(),R.layout.item_layout, cursor, fromFieldNames, toViewIDs, 0);
