@@ -16,7 +16,10 @@ public class LogHistoryActivity extends AppCompatActivity
     TextView thoughtLogView;
     String line;
     ListView dblist;
-    Button GAD7button;
+    Button thoughtLogButton;
+    Button GAD7Button;
+    Button PHQ9Button;
+
 
 
     DatabaseHelper myDb;
@@ -30,7 +33,9 @@ public class LogHistoryActivity extends AppCompatActivity
         setContentView(R.layout.loghistory);
         // bind GUI elements with local controls
 
-        GAD7button = (Button) findViewById(R.id.GAD7_button);
+        thoughtLogButton = (Button) findViewById(R.id.Thought_Log_button);
+        GAD7Button = (Button) findViewById(R.id.GAD7_button);
+        PHQ9Button = (Button) findViewById(R.id.PHQ_button);
         dblist = (ListView) findViewById(R.id.listViewTasks);
 
         myDb = new DatabaseHelper(this);
@@ -40,6 +45,8 @@ public class LogHistoryActivity extends AppCompatActivity
         thoughtLogListViewItemClick();
 
         anxietyButton();
+        thoughtLogButton();
+        depressionButton();
     }
 
     public void viewAllThoughtLog() {
@@ -48,8 +55,23 @@ public class LogHistoryActivity extends AppCompatActivity
         //Show no data message
         showMessage("Error", "Nothing found");
     }
-
 }
+
+    public void viewAllGAD7Data() {
+        Cursor res = myDb.getAllGAD7Data();
+        if (res.getCount() == 0) {
+            //Show no data message
+            showMessage("Error", "Nothing found");
+        }
+    }
+
+    public void viewAllPHQ9Data() {
+        Cursor res = myDb.getAllPHQ9Data();
+        if (res.getCount() == 0) {
+            //Show no data message
+            showMessage("Error", "Nothing found");
+        }
+    }
 
     private void populateListViewThoughtLog(){
         Cursor cursor = myDb.getAllThoughtLogData();
@@ -61,12 +83,34 @@ public class LogHistoryActivity extends AppCompatActivity
         myList.setAdapter(myCursorAdapter);
     }
 
-    public void anxietyButton(){
-        GAD7button.setOnClickListener(new View.OnClickListener() {
+    public void thoughtLogButton(){
+        thoughtLogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                populateListViewGAD7();
+                populateListViewThoughtLog();
                 thoughtLogListViewItemClick();
+            }
+        });
+    }
+
+    public void anxietyButton(){
+        GAD7Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewAllGAD7Data();
+                populateListViewGAD7();
+                anxietyListViewItemClick();
+            }
+        });
+    }
+
+    public void depressionButton(){
+        PHQ9Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewAllPHQ9Data();
+                populateListViewPHQ9();
+                anxietyListViewItemClick();
             }
         });
     }
@@ -74,6 +118,16 @@ public class LogHistoryActivity extends AppCompatActivity
     private void populateListViewGAD7(){
         Cursor cursor = myDb.getAllGAD7Data();
         String[] fromFieldNames = new String[] {DatabaseHelper.GAD7_COL_1,DatabaseHelper.GAD7_COL_2, DatabaseHelper.GAD7_COL_3};
+        int[] toViewIDs = new int[] {R.id.textViewItemNumber,R.id.textViewDatetime, R.id.textViewItemSituation,};
+        SimpleCursorAdapter myCursorAdapter;
+        myCursorAdapter = new SimpleCursorAdapter(getBaseContext(),R.layout.item_layout, cursor, fromFieldNames, toViewIDs, 0);
+        ListView myList = (ListView) findViewById(R.id.listViewTasks);
+        myList.setAdapter(myCursorAdapter);
+    }
+
+    private void populateListViewPHQ9(){
+        Cursor cursor = myDb.getAllPHQ9Data();
+        String[] fromFieldNames = new String[] {DatabaseHelper.PHQ9_COL_1,DatabaseHelper.PHQ9_COL_2, DatabaseHelper.PHQ9_COL_3};
         int[] toViewIDs = new int[] {R.id.textViewItemNumber,R.id.textViewDatetime, R.id.textViewItemSituation,};
         SimpleCursorAdapter myCursorAdapter;
         myCursorAdapter = new SimpleCursorAdapter(getBaseContext(),R.layout.item_layout, cursor, fromFieldNames, toViewIDs, 0);
