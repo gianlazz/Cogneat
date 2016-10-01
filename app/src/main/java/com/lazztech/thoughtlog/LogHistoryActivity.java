@@ -35,12 +35,12 @@ public class LogHistoryActivity extends AppCompatActivity
 
         viewAll();
 
-        populateListView();
+        populateListViewThoughtLog();
         listViewItemClick();
     }
 
     public void viewAll() {
-    Cursor res= myDb.getAllData();
+    Cursor res= myDb.getAllThoughtLogData();
     if (res.getCount() == 0) {
         //Show no data message
         showMessage("Error", "Nothing found");
@@ -48,8 +48,8 @@ public class LogHistoryActivity extends AppCompatActivity
 
 }
 
-    private void populateListView(){
-        Cursor cursor = myDb.getAllData();
+    private void populateListViewThoughtLog(){
+        Cursor cursor = myDb.getAllThoughtLogData();
         String[] fromFieldNames = new String[] {DatabaseHelper.COL_1,DatabaseHelper.COL_2, DatabaseHelper.COL_3};
         int[] toViewIDs = new int[] {R.id.textViewItemNumber,R.id.textViewDatetime, R.id.textViewItemSituation,};
         SimpleCursorAdapter myCursorAdapter;
