@@ -15,6 +15,7 @@ import android.content.*;
 import android.os.Bundle;
 import android.view.View.OnClickListener;
 import android.support.v7.widget.Toolbar;
+import android.support.v7.app.ActionBar;
 
 public class NewLogActivity extends AppCompatActivity
 {
@@ -83,6 +84,12 @@ public class NewLogActivity extends AppCompatActivity
 
 		Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
 		setSupportActionBar(myToolbar);
+
+		// Get a support ActionBar corresponding to this toolbar
+		ActionBar ab = getSupportActionBar();
+
+		// Enable the Up button
+		ab.setDisplayHomeAsUpEnabled(true);
 
 		SaveData();
 	}
