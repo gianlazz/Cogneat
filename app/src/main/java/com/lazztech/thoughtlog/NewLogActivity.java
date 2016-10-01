@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.content.*;
 import android.os.Bundle;
 import android.view.View.OnClickListener;
+import android.support.v7.widget.Toolbar;
 
 public class NewLogActivity extends AppCompatActivity
 {
@@ -79,6 +80,9 @@ public class NewLogActivity extends AppCompatActivity
 		altthoughts = (EditText) findViewById(R.id.altthoughts);
 
 		btnWriteSDFile = (Button) findViewById(R.id.btnWriteSDFile);
+
+		Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+		setSupportActionBar(myToolbar);
 
 		SaveData();
 	}
@@ -195,5 +199,36 @@ public class NewLogActivity extends AppCompatActivity
 			}//Close onClick
 		});//Close setOnClickListener
 	}//Close SaveData()
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
+		// Inflate main_menu.xml
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.new_log_menu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case R.id.action_settings:
+				// User chose the "Settings" item, show the app settings UI...
+				Toast.makeText(this, "Developed by Gian Lazzarini.", Toast.LENGTH_LONG).show();
+				return true;
+
+			case R.id.action_help:
+				// User chose the "Favorite" action, mark the current item
+				// as a favorite...
+				Toast.makeText(this, "Developed by Gian Lazzarini.", Toast.LENGTH_LONG).show();
+				return true;
+
+			default:
+				// If we got here, the user's action was not recognized.
+				// Invoke the superclass to handle it.
+				return super.onOptionsItemSelected(item);
+
+		}
+	}
 
 }//Close NewLogActivity Class
