@@ -219,11 +219,6 @@ public class NewLogActivity extends AppCompatActivity
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-			case R.id.action_settings:
-				// User chose the "Settings" item, show the app settings UI...
-				Toast.makeText(this, "Developed by Gian Lazzarini.", Toast.LENGTH_LONG).show();
-				return true;
-
 			case R.id.action_help:
 				// User chose the "Favorite" action, mark the current item
 				// as a favorite...
