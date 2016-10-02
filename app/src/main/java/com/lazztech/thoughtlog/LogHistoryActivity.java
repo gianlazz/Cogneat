@@ -189,4 +189,27 @@ public class LogHistoryActivity extends AppCompatActivity
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        // Inflate main_menu.xml
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.loghistory_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.old_log:
+                Toast.makeText(this, "Developed by Gian Lazzarini.", Toast.LENGTH_LONG).show();
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 }
