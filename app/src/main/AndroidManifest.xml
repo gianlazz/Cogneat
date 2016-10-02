@@ -45,6 +45,16 @@
             </meta-data>
          </activity>
         <activity
+            android:label="Old Log History"
+            android:name=".OldLogHistoryActivity"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".LogHistoryActivity">
+            <meta-data
+                android:name="android.support.Parent_Activity"
+                android:value=".LogHistoryActivity">
+            </meta-data>
+        </activity>
+        <activity
             android:label="PHQ-9 Depression Test"
             android:theme="@style/AppTheme"
             android:name=".PHQ9Activity"

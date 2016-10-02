@@ -202,7 +202,8 @@ public class LogHistoryActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.old_log:
-                Toast.makeText(this, "Developed by Gian Lazzarini.", Toast.LENGTH_LONG).show();
+                Intent oldloghistoryactivity = new Intent(LogHistoryActivity.this, OldLogHistoryActivity.class);
+                startActivity(oldloghistoryactivity);
                 return true;
 
             default:
