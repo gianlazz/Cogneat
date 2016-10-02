@@ -227,7 +227,12 @@ public class NewLogActivity extends AppCompatActivity
 			case R.id.action_help:
 				// User chose the "Favorite" action, mark the current item
 				// as a favorite...
-				Toast.makeText(this, "Developed by Gian Lazzarini.", Toast.LENGTH_LONG).show();
+				Toast.makeText(this, "Situation: Describe your situation, simply. \n\n" +
+						"Thoughts: Type everything thought or concern you are thinking about this situation. \n\n" +
+						"Emotions: List your emotions. \n\n" +
+						"Behavior: Describe what you are or have been doing about this situation. \n\n" +
+						"Alternative Behaviors: Now that you may have identified un-healthy thinking patterns or behaviors, enter some healthy ideas of how to take care of yourself. \n\n" +
+						"Alternative Thoughts: Use this field to enter in kind supportive words that challenge the unhealthy thinking patterns. Be kind and considerate to yourself like you would to a friend or family member you care about.", Toast.LENGTH_LONG).show();
 				return true;
 
 			default:
