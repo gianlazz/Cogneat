@@ -82,9 +82,6 @@ public class NewLogActivity extends AppCompatActivity
 
 		btnWriteSDFile = (Button) findViewById(R.id.btnWriteSDFile);
 
-		Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-		setSupportActionBar(myToolbar);
-
 		// Get a support ActionBar corresponding to this toolbar
 		ActionBar ab = getSupportActionBar();
 
