@@ -10,29 +10,6 @@
         android:id="@+id/textView10"
         android:layout_gravity="center_horizontal" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0. Not At all 1. Several Days 2. More Than Half the Days 3. Nearly Every Day"
-        android:id="@+id/textView11"
-        android:layout_gravity="center_horizontal" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/situationWrapper"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.AppCompat.Light">
-
-        <EditText
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:ems="10"
-            android:layout_width="match_parent"
-            android:hint="Situation:"
-            android:id="@+id/situation" />
-
-    </android.support.design.widget.TextInputLayout>
-
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
@@ -48,6 +25,31 @@
                 android:text="1. Feeling nervous, anxious, or on edge"
                 android:id="@+id/textView" />
 
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/RelativeLayout01"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dp">
+
+                <TextView android:id="@+id/seekbar1_value"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:text="0"
+                    android:layout_alignParentLeft="true" />
+                <TextView android:id="@+id/seekbar1_result"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:text="Not At All"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
             <SeekBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -60,6 +62,31 @@
                 android:layout_height="wrap_content"
                 android:text="2. Not being able to stop or control worrying"
                 android:id="@+id/textView2" />
+
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/RelativeLayout02"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dp">
+
+                <TextView android:id="@+id/seekbar2_value"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:text="0"
+                    android:layout_alignParentLeft="true" />
+                <TextView android:id="@+id/seekbar2_result"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:text="Not At All"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
 
             <SeekBar
                 android:layout_width="match_parent"
@@ -74,6 +101,31 @@
                 android:text="3. Worrying too much about different things"
                 android:id="@+id/textView3" />
 
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/RelativeLayout03"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dp">
+
+                <TextView android:id="@+id/seekbar3_value"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:text="0"
+                    android:layout_alignParentLeft="true" />
+                <TextView android:id="@+id/seekbar3_result"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:text="Not At All"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
             <SeekBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,6 +138,31 @@
                 android:layout_height="wrap_content"
                 android:text="4. Trouble relaxing"
                 android:id="@+id/textView4" />
+
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/RelativeLayout04"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dp">
+
+                <TextView android:id="@+id/seekbar4_value"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:text="0"
+                    android:layout_alignParentLeft="true" />
+                <TextView android:id="@+id/seekbar4_result"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:text="Not At All"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
 
             <SeekBar
                 android:layout_width="match_parent"
@@ -100,6 +177,31 @@
                 android:text="5. Being so restless that it’s hard to sit still"
                 android:id="@+id/textView5" />
 
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/RelativeLayout05"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dp">
+
+                <TextView android:id="@+id/seekbar5_value"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:text="0"
+                    android:layout_alignParentLeft="true" />
+                <TextView android:id="@+id/seekbar5_result"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:text="Not At All"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
             <SeekBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -113,6 +215,31 @@
                 android:text="6. Becoming easily annoyed or irritable"
                 android:id="@+id/textView6" />
 
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/RelativeLayout06"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dp">
+
+                <TextView android:id="@+id/seekbar6_value"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:text="0"
+                    android:layout_alignParentLeft="true" />
+                <TextView android:id="@+id/seekbar6_result"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:text="Not At All"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
             <SeekBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -125,6 +252,31 @@
                 android:layout_height="wrap_content"
                 android:text="7. Feeling afraid as if something awful might happen"
                 android:id="@+id/textView7" />
+
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/RelativeLayout07"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dp">
+
+                <TextView android:id="@+id/seekbar7_value"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:text="0"
+                    android:layout_alignParentLeft="true" />
+                <TextView android:id="@+id/seekbar7_result"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"
+                    android:text="Not At All"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
 
             <SeekBar
                 android:layout_width="match_parent"

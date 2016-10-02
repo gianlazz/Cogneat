@@ -25,7 +25,7 @@
         </activity>
 		<activity
 			android:label="Thought Log"
-			android:theme="@style/AppTheme"
+            android:theme="@style/AppTheme"
 			android:name=".NewLogActivity"
             android:windowSoftInputMode="adjustPan"
             android:parentActivityName=".MainActivity">
@@ -45,6 +45,16 @@
             </meta-data>
          </activity>
         <activity
+            android:label="Old Log History"
+            android:name=".OldLogHistoryActivity"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".LogHistoryActivity">
+            <meta-data
+                android:name="android.support.Parent_Activity"
+                android:value=".LogHistoryActivity">
+            </meta-data>
+        </activity>
+        <activity
             android:label="PHQ-9 Depression Test"
             android:theme="@style/AppTheme"
             android:name=".PHQ9Activity"
@@ -62,6 +72,16 @@
             <meta-data
                 android:name="android.support.Parent_Activity"
                 android:value=".MainActivity">
+            </meta-data>
+        </activity>
+        <activity
+            android:label="Database Row Info"
+            android:theme="@style/AppTheme"
+            android:name=".AllDBRow"
+            android:parentActivityName=".LogHistoryActivity">
+            <meta-data
+                android:name="android.support.Parent_Activity"
+                android:value=".LogHistoryActivity">
             </meta-data>
         </activity>
     </application>

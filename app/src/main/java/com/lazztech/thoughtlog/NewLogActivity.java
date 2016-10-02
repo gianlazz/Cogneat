@@ -1,22 +1,21 @@
 package com.lazztech.thoughtlog;
 
 import android.app.*;
-import android.os.*;
 import android.view.*;
 import android.widget.*;
-import java.io.*;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import android.support.design.widget.TextInputLayout;
+
 import android.support.v7.app.AppCompatActivity;
 
 import android.content.*;
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View.OnClickListener;
-import android.widget.SearchView.*;
+import android.support.v7.widget.Toolbar;
+import android.support.v7.app.ActionBar;
 
 public class NewLogActivity extends AppCompatActivity
 {
@@ -50,6 +49,8 @@ public class NewLogActivity extends AppCompatActivity
 	EditText altbehavior;
 	EditText altthoughts;
 	Button btnWriteSDFile;
+
+	DatabaseHelper myDb;
 	/** Called when the activity is first created. */
 
 	@Override
@@ -58,6 +59,8 @@ public class NewLogActivity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		//Set NewLogActivity.xml as user interface layout
 		setContentView(R.layout.newlog);
+
+		myDb = new DatabaseHelper(this);
 
 		// bind GUI elements with local controls
 		situation = (EditText) findViewById(R.id.situation);
@@ -78,15 +81,21 @@ public class NewLogActivity extends AppCompatActivity
 		altthoughts = (EditText) findViewById(R.id.altthoughts);
 
 		btnWriteSDFile = (Button) findViewById(R.id.btnWriteSDFile);
+
+		// Get a support ActionBar corresponding to this toolbar
+		ActionBar ab = getSupportActionBar();
+
+		// Enable the Up button
+		ab.setDisplayHomeAsUpEnabled(true);
+
+		SaveData();
 	}
 
 		//Checkbox onclick actions
 	public void onCheckboxClicked(View view)
 	{
-
 		// Is the view now checked?
 		boolean checked = ((CheckBox) view).isChecked();
-
 		// Check which checkbox was clicked
 		switch(view.getId()) {
 			case R.id.fortunetellingCheckBox1:
@@ -137,89 +146,93 @@ public class NewLogActivity extends AppCompatActivity
 				else
 					distortions.remove(blackandwhitethinkingString);
 				break;
-		}
-		btnWriteSDFile.setOnClickListener(new OnClickListener() {
-
-				public void onClick(View v) {
-
-					//Put up the Yes/No message box
-					AlertDialog.Builder builder = new AlertDialog.Builder(NewLogActivity.this);
-					builder
-							.setTitle("Are you sure you're finished?")
-							.setMessage("Touch \"YES\" to save.")
-							//.setIcon(android.R.drawable.ic_dialog_alert)
-							.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog, int which) {
-									// write on SD card file data in the text box
-									try {
-										File directory = Environment.getExternalStorageDirectory();
-										File myFile = new File(directory, "mythoughtlog.txt");
-
-										// Check if the file already exists so you don't keep creating
-										if(!myFile.exists()) {
-											//Log.i(TAG, "Creating the file as it doesn't exist already");
-											myFile.createNewFile();
-										}
-
-										// Open the FileoutputStream
-										FileOutputStream fOut = new FileOutputStream(myFile, true);
-
-										// Open the printStream to allow for Strings to be written
-										PrintStream printStream = new PrintStream(fOut);
-
-										SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mma");
-										String currentDateandTime = sdf.format(new Date());
-										Date+=" "+currentDateandTime;
-
-
-										// Using a stringBuffer to append all the values to
-										StringBuffer stringBuffer = new StringBuffer();
-										stringBuffer.append(Date);
-										stringBuffer.append('\n');
-										stringBuffer.append("Situation: " + situation.getText());
-										stringBuffer.append('\n');
-										stringBuffer.append("Thoughts: " + thoughts.getText());
-										stringBuffer.append('\n');
-										stringBuffer.append("Emotions: " + emotions.getText());
-										stringBuffer.append('\n');
-										stringBuffer.append("Behavior: " + behavior.getText());
-										stringBuffer.append('\n');
-										stringBuffer.append("Distortions: ");
-										stringBuffer.append(distortions);
-										stringBuffer.append('\n');
-										stringBuffer.append("Alt Behavior: " + altbehavior.getText());
-										stringBuffer.append('\n');
-										stringBuffer.append("Alt Thoughts: " + altthoughts.getText());
-										stringBuffer.append('\n');
-										stringBuffer.append('\n');
-
-										// Print the stringBuffer to the file
-										printStream.print(stringBuffer.toString());
-
-										// Close everything out
-										printStream.close();
-										fOut.close();
-										//ClearScreen
-										situation.setText("");
-										thoughts.setText("");
-										emotions.setText("");
-										behavior.setText("");
-										altbehavior.setText("");
-										altthoughts.setText("");
-										Toast.makeText(getBaseContext(),
-												"Saved to 'mythoughtlog.txt'",
-												Toast.LENGTH_SHORT).show();
-									} catch (Exception e) {
-										e.printStackTrace();
-										Toast.makeText(getBaseContext(), e.getMessage(),
-												Toast.LENGTH_SHORT).show();
-									}
-								}
-							})
-							.setNegativeButton("No", null)						//Do nothing on no
-							.show();
-
-			}//Save onClick
-		});// btnWriteSDFile
+			}
 	}
-}// AndSDcard
+
+	public void AddData() {
+		CurrentDateTime();
+		boolean isInserted = myDb.insertThoughtLogData(
+				Date.toString(),
+				situation.getText().toString(),
+				thoughts.getText().toString(),
+				emotions.getText().toString(),
+				behavior.getText().toString(),
+				distortions.toString(),
+				altbehavior.getText().toString(),
+				altthoughts.getText().toString());
+		if(isInserted =true)
+			Toast.makeText(NewLogActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
+	}
+
+	public void CurrentDateTime() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mma");
+		String currentDateandTime = sdf.format(new Date());
+		Date+=" "+currentDateandTime;
+	}
+
+	public void ClearScreen() {
+		situation.setText("");
+		thoughts.setText("");
+		emotions.setText("");
+		behavior.setText("");
+		altbehavior.setText("");
+		altthoughts.setText("");
+	}
+
+	public void SaveData() {
+		btnWriteSDFile.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				//Put up the Yes/No message box
+				AlertDialog.Builder builder = new AlertDialog.Builder(NewLogActivity.this);
+				builder
+						.setTitle("Are you sure you're finished?")
+						.setMessage("Touch \"YES\" to save.")
+								//.setIcon(android.R.drawable.ic_dialog_alert)
+						.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int which) {
+								AddData();
+								Intent intent = new Intent(NewLogActivity.this, MainActivity.class);
+								startActivity(intent);
+
+								//ClearScreen
+								ClearScreen();
+							}
+						})
+						.setNegativeButton("No", null)	//Do nothing on no
+						.show();
+			}//Close onClick
+		});//Close setOnClickListener
+	}//Close SaveData()
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
+		// Inflate main_menu.xml
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.new_log_menu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case R.id.action_help:
+				// User chose the "Favorite" action, mark the current item
+				// as a favorite...
+				Toast.makeText(this, "Situation: Describe your situation, simply. \n\n" +
+						"Thoughts: Type everything thought or concern you are thinking about this situation. \n\n" +
+						"Emotions: List your emotions. \n\n" +
+						"Behavior: Describe what you are or have been doing about this situation. \n\n" +
+						"Alternative Behaviors: Now that you may have identified un-healthy thinking patterns or behaviors, enter some healthy ideas of how to take care of yourself. \n\n" +
+						"Alternative Thoughts: Use this field to enter in kind supportive words that challenge the unhealthy thinking patterns. Be kind and considerate to yourself like you would to a friend or family member you care about.", Toast.LENGTH_LONG).show();
+				return true;
+
+			default:
+				// If we got here, the user's action was not recognized.
+				// Invoke the superclass to handle it.
+				return super.onOptionsItemSelected(item);
+
+		}
+	}
+
+}//Close NewLogActivity Class

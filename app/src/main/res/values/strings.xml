@@ -6,6 +6,8 @@
 	<string name="title">Challenge unhealthy automatic thoughts and build a more effective perspective on life the pragmatic way with C.B.T.</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
+    <string name="new_changes">NEW CHANGES: Your data is now stored as an SQLite database and no longer the "mythoughtlog.txt" file. You can still access your old log entries
+    by going to the root directory of your external storage, though new entries will no longer be added there.</string>
 	
 	
 </resources>
