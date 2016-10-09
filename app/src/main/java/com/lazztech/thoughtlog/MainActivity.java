@@ -3,6 +3,7 @@ package com.lazztech.thoughtlog;
 import android.app.*;
 import android.content.*;
 import android.os.*;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.*;
 import android.widget.*;
@@ -32,6 +33,15 @@ public class MainActivity extends AppCompatActivity
 		mDrawerList = (ListView)findViewById(R.id.navList);
 		mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
 		mActivityTitle = getTitle().toString();
+
+		FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab);
+		fab.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this, NewLogActivity.class);
+				startActivity(intent);
+			}
+		});
 
 		addDrawerItems();
 		setupDrawer();
