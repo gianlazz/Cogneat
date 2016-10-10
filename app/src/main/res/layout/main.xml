@@ -36,21 +36,6 @@
 		android:background="#c0c0c0"
 		android:layout_marginTop="10dp"/>
 
-	<LinearLayout
-		android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
-		android:gravity="bottom|center">
-
-		<Button
-			android:layout_height="80dp"
-			android:text="Thought Log"
-			android:layout_width="match_parent"
-			android:layout_weight="1.0"
-			android:textSize="25sp"
-			android:onClick="onNewLogButtonClick"/>
-
-	</LinearLayout>
-
 </LinearLayout>
 
 	<!-- Side navigation drawer UI -->
@@ -68,6 +53,8 @@
 		android:layout_height="wrap_content"
 		android:layout_gravity="bottom|right"
 		android:layout_margin="16dp"
+		app:borderWidth="0dp"
+		app:fabSize="normal"
 		android:src="@drawable/ic_add_white_24dp"
 		app:layout_anchor="@id/main_content"
 		app:layout_anchorGravity="bottom|right|end"
