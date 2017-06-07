@@ -1,4 +1,4 @@
-# Android-Thought-Log
+# Cogneat™ Keeping your cognition neat and tidy
 
 # Concept *Draft*
 A quantified self app. Data analytics about psycological states, along with corieltion to physical state.
